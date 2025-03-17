@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { View, Text, Image, StyleSheet, Dimensions, Platform } from "react-native";
 import { Pressable } from "react-native";
-import { useAuth } from "../hooks/useAuth"; // Importamos useAuth
+import { useAuth } from "../hooks/useAuth";
 import ProfileSidebar from "./ProfileSideBar";
+
 
 const { width, height } = Dimensions.get("window");
 
@@ -23,8 +24,9 @@ const ProfilePreview: React.FC = () => {
 
   return (
     <View style={styles.container}>
+      
       {/* Botón de preview del perfil */}
-      <Pressable onPress={toggleSidebar} style={styles.previewContainer}>
+      {!isExpanded &&       <Pressable onPress={toggleSidebar} style={styles.previewContainer}>
         <Text style={styles.name}>
           {user ? `${getFirstName(user.firstName)} ${getFirstLastName(user.lastName)}` : "Cargando..."}
         </Text>
@@ -32,7 +34,8 @@ const ProfilePreview: React.FC = () => {
           source={user?.profileImage ? { uri: user.profileImage } : defaultProfileImage} 
           style={styles.profileImage} 
         />
-      </Pressable>
+      </Pressable>}
+
 
       {/* Sidebar estático */}
       {isExpanded && user && (
@@ -83,7 +86,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ddd",
   },
   sidebar: {
-    position: "absolute",
+    position: "relative",
     top: 0,
     left: 0,
     bottom: 0,
@@ -92,6 +95,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderTopRightRadius: 20,
     borderBottomRightRadius: 20,
+    zIndex: 999,
     ...Platform.select({
       ios: {
         // shadowColor: "#000",

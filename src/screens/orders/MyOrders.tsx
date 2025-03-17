@@ -3,11 +3,11 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const CartScreen = () => {
+const MyOrders = () => {
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
-                <Text style={styles.text}>🏠 CartScreen</Text>
+                <Text style={styles.text}>🏠 MyOrders</Text>
             </View>
         </SafeAreaView>
 
@@ -31,4 +31,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CartScreen;
+export default MyOrders;

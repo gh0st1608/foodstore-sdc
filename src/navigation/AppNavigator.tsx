@@ -1,15 +1,16 @@
+
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import AuthNavigator from "./AuthNavigator";
-import MainNavigator from "./MainNavigator";
-import { useAuth } from "../hooks/useAuth"; // ✅ Usa el hook useAuth()
+import GlobalStack from "./GlobalStack";
+import { useAuth } from "../hooks/useAuth";
 
 const AppNavigator = () => {
-  const { user } = useAuth(); // ✅ Ahora se obtiene correctamente el usuario
+  const { user } = useAuth();
 
   return (
     <NavigationContainer>
-      {user ? <MainNavigator /> : <AuthNavigator />}
+      {user ? <GlobalStack /> : <AuthNavigator />}
     </NavigationContainer>
   );
 };
