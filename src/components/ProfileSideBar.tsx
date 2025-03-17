@@ -39,7 +39,6 @@ const ProfileSidebar = () => {
           <Feather name="chevron-right" size={20} color="gray" />
         </Pressable>
 
-
         {/* <Pressable
           style={styles.menuItem}
           onPress={() => navigation.navigate("TestSwitch")}
