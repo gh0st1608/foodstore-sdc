@@ -1,6 +1,6 @@
 
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet, FlatList, Dimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CategoryCard from "../../components/CategoryCard";
 import { useNavigation } from "@react-navigation/native";
@@ -50,7 +50,7 @@ const categories: CategoryData[] = [
     imageUrl: "https://www.foodandwine.com/thmb/Wd4lBRZz3X_8qBr69UOu2m7I2iw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-cheese-pizza-FT-RECIPE0422-31a2c938fc2546c9a07b7011658cfd05.jpg",
   },
 ];
-
+const { width, height } = Dimensions.get("window");
 const FavoritesScreen = () => {
   const navigation = useNavigation<NavigationProps>();
 
@@ -58,6 +58,7 @@ const FavoritesScreen = () => {
     // Navegar a la pantalla de platos, enviando el ID de la categoría
     navigation.navigate("CategoryDishes", { categoryId });
   };
+
 
   const renderItem = ({ item }: { item: CategoryData }) => (
     <CategoryCard
@@ -96,13 +97,14 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
     backgroundColor: "#fff",
+    alignItems: "center",
     position: "absolute",
     top: 90,
   },
   headerText: {
     fontSize: 20,
     fontWeight: "bold",
-    marginTop: 60,
+    // marginTop: 60,
     marginBottom: 10,
     textAlign: "center",
   },
