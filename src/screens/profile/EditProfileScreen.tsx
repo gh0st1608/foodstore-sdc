@@ -28,12 +28,15 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: "#fff",
+    position: "relative",
   },
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
+    position: "absolute",
+    top: 90,
   },
   text: {
     fontSize: 20,
