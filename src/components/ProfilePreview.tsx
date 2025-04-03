@@ -62,7 +62,7 @@ const ProfilePreview: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    top: 20,
+    top: 30,
     left: 0,
     zIndex: 10,
   },
