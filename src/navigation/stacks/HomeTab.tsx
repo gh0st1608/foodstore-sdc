@@ -13,8 +13,8 @@ const HomeTab = () => {
     id={undefined}
     >
       <Stack.Screen name="Home" component={HomeScreen} />
-      {/* <Stack.Screen name="EditProfile" component={EditProfileScreen} />
-      <Stack.Screen name="MyOrders" component={MyOrders} /> */}
+      {/* <Stack.Screen name="EditProfile" component={EditProfileScreen} /> */}
+      {/* <Stack.Screen name="MyOrders" component={MyOrders} /> */}
     </Stack.Navigator>
   );
 };

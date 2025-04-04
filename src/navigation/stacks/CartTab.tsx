@@ -12,9 +12,10 @@ const CartTab = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}
     id={undefined}
     >
-      <Stack.Screen name="Cart" component={CartScreen} />
-      <Stack.Screen name="EditProfile" component={EditProfileScreen} />
-      <Stack.Screen name="MyOrders" component={MyOrders} />
+      <Stack.Screen name="CartScreen" component={CartScreen} />
+      {/* <Stack.Screen name="EditProfile" component={EditProfileScreen} />
+      <Stack.Screen name="MyOrders" component={MyOrders} /> */}
+
     </Stack.Navigator>
   );
 };

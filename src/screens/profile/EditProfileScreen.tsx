@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     position: "relative",
+
   },
   container: {
     flex: 1,

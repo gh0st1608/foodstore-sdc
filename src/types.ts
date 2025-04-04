@@ -6,5 +6,6 @@ export type RootStackParamList = {
     Favorites: undefined;
     // HomeTab: undefined;
     CategoryDishes: { categoryId: number };
+    CartScreen: undefined;
   };
   

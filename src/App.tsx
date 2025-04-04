@@ -2,8 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import AppNavigator from './navigation/AppNavigator';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import MainNavigator from './navigation/MainNavigator';
+// import MainNavigator from './navigation/MainNavigator';
 import { AuthProvider } from './hooks/useAuth';
+import { CartProvider } from './context/CartContext';
 
 export default function App() {
     console.log("App se esta renderizando");
@@ -21,7 +22,9 @@ export default function App() {
     //   <StatusBar style="auto" />
     // </View>
     <AuthProvider>
+      <CartProvider>
         <AppNavigator />
+      </CartProvider>
     </AuthProvider>
   );
 }

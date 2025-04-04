@@ -6,7 +6,10 @@ import MainTabs from "./MainTabs";
 // import CheckoutScreen from "../screens/checkout/CheckoutScreen";
 import EditProfileScreen from "../screens/profile/EditProfileScreen";
 import MyOrders from "../screens/orders/MyOrders";
-// etc.
+import CartScreen from "../screens/cart/CartScreen";
+import MiniCart from "../components/MiniCart";
+import CartTab from "./stacks/CartTab";
+
 
 const Stack = createStackNavigator();
 
@@ -15,6 +18,7 @@ const GlobalStack = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}
     id={undefined}
     >
+
 
       <Stack.Screen
         name="MainTabs"
@@ -25,20 +29,22 @@ const GlobalStack = () => {
           </GlobalLayout>
         )}
       />
-      {/* <Stack.Screen
-        name="Checkout"
-        children={() => (
-          <GlobalLayout>
-            <CheckoutScreen />
-          </GlobalLayout>
-        )}
-      /> */}
+
       <Stack.Screen
         name="EditProfile"
         children={() => (
           <GlobalLayout>
             <EditProfileScreen />
-            <MainTabs />
+            {/* <MainTabs /> */}
+          </GlobalLayout>
+        )}
+      />
+            <Stack.Screen
+        name="CartTab"
+        children={() => (
+          <GlobalLayout>
+            <CartScreen />
+            {/* <MainTabs /> */}
           </GlobalLayout>
         )}
       />
@@ -50,7 +56,7 @@ const GlobalStack = () => {
           </GlobalLayout>
         )}
       />
-      {/* etc... */}
+
     </Stack.Navigator>
   );
 };

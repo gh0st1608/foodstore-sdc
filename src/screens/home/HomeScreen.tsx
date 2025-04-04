@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, SafeAreaView, Dimensions } from "react-native";
+import MenuMockScreen from "./MenuMockScreen";
 
 const { width, height } = Dimensions.get("window"); // Obtener dimensiones del dispositivo
 
@@ -17,7 +18,7 @@ const HomeScreen = () => {
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
-        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
+        <MenuMockScreen />
 
 
       </View>
