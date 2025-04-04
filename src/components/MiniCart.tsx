@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   miniCartContainer: {
     position: "absolute",
     right: 20,
-    top: 0,
+    top: 5,
     padding: 10,
     backgroundColor: "tomato",
     borderRadius: 20,

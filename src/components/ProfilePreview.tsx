@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, StyleSheet, Dimensions, Pressable } from "react-native";
+import { View, Text, Image, StyleSheet, Dimensions, Pressable, Platform } from "react-native";
 import { useAuth } from "../hooks/useAuth";
 import ProfileSidebar from "./ProfileSideBar";
 import MiniCart from "./MiniCart";
@@ -19,11 +19,11 @@ const ProfilePreview: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleSidebar = () => {
-    setIsExpanded((prev) => !prev);
+    setIsExpanded(!isExpanded);
   };
 
   // Si no hay usuario, retornamos null o algo simple
-  if (!user) return null;
+  // if (!user) return null;
 
   return (
 
@@ -34,7 +34,7 @@ const ProfilePreview: React.FC = () => {
         {!isExpanded && (
           <Pressable onPress={toggleSidebar} style={styles.previewContainer}>
             <Text style={styles.name}>
-              {getFirstName(user.firstName)} {getFirstLastName(user.lastName)}
+            {user ? `${getFirstName(user.firstName)} ${getFirstLastName(user.lastName)}` : "Cargando..."}
             </Text>
             <Image
               source={user.profileImage ? { uri: user.profileImage } : defaultProfileImage}
@@ -46,7 +46,7 @@ const ProfilePreview: React.FC = () => {
         <MiniCart />
       </View>
 
-      {isExpanded && (
+      {isExpanded && user && (
         <>
 
           <View style={styles.sidebar}>
@@ -68,21 +68,22 @@ const ProfilePreview: React.FC = () => {
   );
 };
 
-export default ProfilePreview;
+
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     position: "absolute",
     top: 5,
-    left: 0,
+    // left: 0,
     width,
     zIndex: 50,
   },
   headerRow: {
-
+    flex: 1,
     marginTop: 30,
     marginHorizontal: 16,
+    backgroundColor: "#fff",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -116,6 +117,21 @@ const styles = StyleSheet.create({
     zIndex: 999,
     borderTopRightRadius: 20,
     borderBottomRightRadius: 20,
+    ...Platform.select({
+      ios: {
+        // shadowColor: "#000",
+        // shadowOffset: { width: 0, height: 2 },
+        // shadowOpacity: 0.2,
+        // shadowRadius: 4,
+      },
+      android: {
+        // elevation: 10,
+      },
+      web: {
+        // borderWidth: 1,
+        borderColor: "#ddd",
+      },
+    }),
   },
   sidebarContent: {
     padding: 30,
@@ -142,3 +158,5 @@ const styles = StyleSheet.create({
     zIndex: 998,
   },
 });
+
+export default ProfilePreview;
