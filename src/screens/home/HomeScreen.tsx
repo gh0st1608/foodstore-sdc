@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, SafeAreaView, Dimensions } from "react-native";
+import { View, Text, StyleSheet, SafeAreaView, Dimensions, ScrollView } from "react-native";
 import MenuMockScreen from "./MenuMockScreen";
 
 const { width, height } = Dimensions.get("window"); // Obtener dimensiones del dispositivo
@@ -7,7 +7,19 @@ const { width, height } = Dimensions.get("window"); // Obtener dimensiones del d
 const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
+
       <View style={styles.container}>
+        <ScrollView>
+        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
+        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
+        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
+        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
+        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
+        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
+        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
+        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
+        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
+        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
@@ -18,8 +30,11 @@ const HomeScreen = () => {
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <MenuMockScreen />
+        </ScrollView>
+
 
       </View>
+
       
 
     </SafeAreaView>
@@ -39,7 +54,8 @@ const styles = StyleSheet.create({
     // justifyContent: "center",
     alignItems: "center",
     position: "absolute",
-    top: 90,
+    top: 100,
+    paddingBottom: 30
   },
   text: {
     fontSize: 20,

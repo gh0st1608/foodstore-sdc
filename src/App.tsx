@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 // import MainNavigator from './navigation/MainNavigator';
 import { AuthProvider } from './hooks/useAuth';
 import { CartProvider } from './context/CartContext';
+import { FavoritesProvider } from './context/FavoritesContext';
 
 export default function App() {
     console.log("App se esta renderizando");
@@ -23,7 +24,10 @@ export default function App() {
     // </View>
     <AuthProvider>
       <CartProvider>
+        <FavoritesProvider>
         <AppNavigator />
+        </FavoritesProvider>
+
       </CartProvider>
     </AuthProvider>
   );

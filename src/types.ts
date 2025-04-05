@@ -4,6 +4,7 @@ export type RootStackParamList = {
     // TestSwitch: undefined;
     MyOrders: undefined;
     Favorites: undefined;
+    Search: undefined;
     // HomeTab: undefined;
     CategoryDishes: { categoryId: number };
     CartScreen: undefined;

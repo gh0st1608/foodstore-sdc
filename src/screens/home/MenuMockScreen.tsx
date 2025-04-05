@@ -32,7 +32,7 @@ const MenuMockScreen = () => {
           <Text>Hamburguesas</Text>
         </Pressable>
         <Pressable style={styles.filterBtn} onPress={() => setFilterMode("cheap")}>
-          <Text>Baratos ( {`<=10 $`} )</Text>
+          <Text>Baratos ( {`<=$ 10`} )</Text>
         </Pressable>
         <Pressable style={styles.filterBtn} onPress={() => setFilterMode("vegan")}>
           <Text>Veganos</Text>
@@ -40,10 +40,13 @@ const MenuMockScreen = () => {
       </View>
 
       <FlatList
+
         data={dishes}
         keyExtractor={(dish) => dish.id}
         renderItem={({ item }) => <DishCard dish={item} />}
         contentContainerStyle={{ paddingBottom: 20 }}
+        horizontal={true}
+
       />
     </View>
   );
@@ -56,6 +59,8 @@ const styles = StyleSheet.create({
   title: { fontSize: 20, fontWeight: "bold", marginBottom: 10 },
   filterRow: {
     flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 8,
     marginBottom: 10,
   },
   filterBtn: {
