@@ -1,21 +1,48 @@
 
 import React from "react";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
-import { RouteProp } from "@react-navigation/native";
+import { View, Text, StyleSheet, FlatList, Pressable, SafeAreaView } from "react-native";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { RootStackParamList } from "../../types";
+import { getDishesByCategory } from "../../data/mockData";
+import { Feather } from "@expo/vector-icons";
+import DishCard from "../../components/DishCard";
 
-interface CategoryDishesScreenProps {
-  route: RouteProp<RootStackParamList, "CategoryDishes">;
-}
+type CategoryDishesScreenRouteProp = RouteProp<RootStackParamList, "CategoryDishes">;
 
-const CategoryDishesScreen: React.FC<CategoryDishesScreenProps> = ({ route }) => {
-  const { categoryId } = route.params; // Se recibe el ID enviado al navegar
+const CategoryDishesScreen = () => {
+  const route = useRoute<CategoryDishesScreenRouteProp>();
+  const { categoryId } = route.params;
+  const navigation = useNavigation();
+
+  const dishes = getDishesByCategory(categoryId);
+  // Si no hay dishes, es posible que la categoría no exista
+  if (!dishes || dishes.length === 0) {
+    return (
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.container}>
+          <Pressable onPress={() => navigation.goBack()} style={styles.backButton}>
+            <Feather name="arrow-left" size={24} color="black" />
+          </Pressable>
+          <Text style={styles.title}>Categoría sin platos o no encontrada</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
-        <Text style={styles.text}>Platos de la Categoría {categoryId}</Text>
-        {/* Aquí colocarías un FlatList con platos filtrados por categoryId */}
+        <Pressable onPress={() => navigation.goBack()} style={styles.backButton}>
+          <Feather name="arrow-left" size={24} color="black" />
+        </Pressable>
+        <Text style={styles.title}>Platos de la categoría {categoryId}</Text>
+
+        <FlatList
+          data={dishes}
+          keyExtractor={(dish) => dish.id}
+          renderItem={({ item }) => <DishCard dish={item} />}
+          contentContainerStyle={styles.listContainer}
+        />
       </View>
     </SafeAreaView>
   );
@@ -24,21 +51,25 @@ const CategoryDishesScreen: React.FC<CategoryDishesScreenProps> = ({ route }) =>
 export default CategoryDishesScreen;
 
 const styles = StyleSheet.create({
+  backButton: {},
   safeArea: {
     flex: 1,
     backgroundColor: "#fff",
-    padding: 16,
     position: "relative",
   },
   container: {
     flex: 1,
-    // padding: 16,
     backgroundColor: "#fff",
+    padding: 16,
     position: "absolute",
     top: 90,
   },
-  text: {
-    fontSize: 18,
+  title: {
+    fontSize: 20,
     fontWeight: "bold",
+    marginBottom: 10,
+  },
+  listContainer: {
+    paddingBottom: 20,
   },
 });

@@ -13,15 +13,11 @@ const HomeScreen = () => {
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
-        <View >
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <MenuMockScreen />
-
-
-      </View>
 
       </View>
       
