@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native";
-// import MainTabs from "../../navigation/MainTabs";
+
 
 const EditProfileScreen = () => {
   const navigation = useNavigation();

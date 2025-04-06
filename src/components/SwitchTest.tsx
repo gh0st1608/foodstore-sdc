@@ -14,7 +14,7 @@ const SwitchTest = () => {
         ios_backgroundColor="#3e3e3e"
         onValueChange={toggleSwitch}
         value={isEnabled}></Switch>
-      {/* {isEnabled ? <Text> its on</Text> : null} */}
+      {isEnabled ? <Text> its on</Text> : null}
     </View>
   );
 };
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
+
   },
 });
 

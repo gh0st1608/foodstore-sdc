@@ -108,13 +108,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#ddd",
   },
   sidebar: {
-    position: "absolute",
+    position: "relative",
     top: 0,
     left: 0,
     width: width * 0.8,
     height: height,
     backgroundColor: "#fff",
-    zIndex: 999,
+    zIndex: 9999,
     borderTopRightRadius: 20,
     borderBottomRightRadius: 20,
     ...Platform.select({
@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
         borderColor: "#ddd",
       },
     }),
+    pointerEvents: "auto",
   },
   sidebarContent: {
     padding: 30,
@@ -155,7 +156,8 @@ const styles = StyleSheet.create({
     width: width * 0.2,
     height: height,
     backgroundColor: "rgba(0,0,0,0.5)",
-    zIndex: 998,
+    zIndex: 999,
+    pointerEvents: "box-only",
   },
 });
 

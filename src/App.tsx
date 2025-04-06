@@ -6,26 +6,21 @@ import { NavigationContainer } from '@react-navigation/native';
 import { AuthProvider } from './hooks/useAuth';
 import { CartProvider } from './context/CartContext';
 import { FavoritesProvider } from './context/FavoritesContext';
+import { NotificationsProvider } from './context/NotificationsContext';
+import NotificationModal from './components/NotificationModal';
 
 export default function App() {
     console.log("App se esta renderizando");
   return (
-    // <View style={styles.container}>
-    //   <Text>Open up App.js to start working on your app! src</Text>
-    //   <Button title="Click me" 
-    //     onPress={() => 
-    //     {
-    //         console.log('Hola devlfer')
-    //         alert('Hola devlfer')
-    //     }
-    //     }
-    //   />
-    //   <StatusBar style="auto" />
-    // </View>
+
     <AuthProvider>
       <CartProvider>
         <FavoritesProvider>
-        <AppNavigator />
+          <NotificationsProvider>
+            <NotificationModal />
+            <AppNavigator />
+          </NotificationsProvider>
+
         </FavoritesProvider>
 
       </CartProvider>

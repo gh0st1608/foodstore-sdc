@@ -6,11 +6,15 @@ import { Feather } from "@expo/vector-icons";
 import { RootStackParamList } from "../types";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import SwitchTest from "./SwitchTest";
+import { useNotifications } from "../context/NotificationsContext";
+import SwitchNotification from "./SwitchNotification";
+import SwitchStatusTest from "./SwitchStatusTest";
 
 type NavigationProps = StackNavigationProp<RootStackParamList, "EditProfile">;
 
 const ProfileSidebar = () => {
   const navigation = useNavigation<NavigationProps>();
+
 
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -39,30 +43,25 @@ const ProfileSidebar = () => {
           <Feather name="chevron-right" size={20} color="gray" />
         </Pressable>
 
-        {/* <Pressable
-          style={styles.menuItem}
-          onPress={() => navigation.navigate("TestSwitch")}
-        >
-          <Text style={styles.menuText}>TestSwitch</Text>
-          <Feather name="chevron-right" size={20} color="gray" />
-        </Pressable> */}
-
 
         {/* Submenú con Switch */}
         <View style={styles.menuItem}>
           <Text style={styles.menuText}>Modo Oscuro</Text>
-          {/* <Switch
+          <Switch
 
           trackColor={{ false: "#767577", true: "#6200ee" }} //  Color de la pista (fondo del switch)
           thumbColor={isDarkMode ? "#ffffff" : "#f4f4f4"} //  Color del círculo
           ios_backgroundColor="#3e3e3e" //  Fallback en iOS
           onValueChange={toggleSwitch} //  Cambia el estado cuando se activa
           value={isDarkMode} //  Refleja el estado actual
-        /> */}
-          <SwitchTest />
+        />
+          {/* <SwitchTest /> */}
         </View>
 
 
+          <SwitchNotification />
+
+          <SwitchStatusTest />
       </View>
     </>
   );
@@ -71,6 +70,7 @@ const ProfileSidebar = () => {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 20,
+
   },
   menuItem: {
     flexDirection: "row",
@@ -80,6 +80,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderBottomWidth: 1,
     borderBottomColor: "#ddd",
+    // position: "relative",
+    // zIndex: -999,
   },
   menuText: {
     fontSize: 16,

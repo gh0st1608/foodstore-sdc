@@ -15,10 +15,7 @@ const HomeScreen = () => {
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
-        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
-        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
-        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
-        <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
+
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
         <Text style={styles.text}>🏠 Bienvenido al Home de blablabla</Text>
@@ -49,7 +46,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    width: width, // Ocupar todo el ancho del dispositivo
+    width: width,
     height: height - 60, // Restar la altura del menú
     // justifyContent: "center",
     alignItems: "center",

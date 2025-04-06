@@ -32,16 +32,22 @@ const CategoryDishesScreen = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
-        <Pressable onPress={() => navigation.goBack()} style={styles.backButton}>
-          <Feather name="arrow-left" size={24} color="black" />
-        </Pressable>
-        <Text style={styles.title}>Platos de la categoría {categoryId}</Text>
+
 
         <FlatList
           data={dishes}
           keyExtractor={(dish) => dish.id}
           renderItem={({ item }) => <DishCard dish={item} />}
           contentContainerStyle={styles.listContainer}
+          horizontal={false}
+          numColumns={2}
+                    ListHeaderComponent={() => (
+                      <>
+                                            <Pressable onPress={() => navigation.goBack()} style={styles.backButton}>
+                      <Feather name="arrow-left" size={24} color="black" />
+                    </Pressable>
+                    <Text style={styles.title}>Platos de la categoría {categoryId}</Text></>
+                    )}
         />
       </View>
     </SafeAreaView>
@@ -61,8 +67,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     padding: 16,
-    position: "absolute",
-    top: 90,
+    // position: "absolute",
+    top: 100,
   },
   title: {
     fontSize: 20,
@@ -70,6 +76,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   listContainer: {
-    paddingBottom: 20,
+    paddingBottom: 150,
+        margin: "auto"
   },
 });

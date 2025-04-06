@@ -40,10 +40,11 @@ const FavoritesScreen = () => {
           keyExtractor={(dish) => dish.id}
           renderItem={({ item }) => <DishCard dish={item} />}
           contentContainerStyle={styles.listContent}
-          // horizontal={false}
+          horizontal={false}
           ListHeaderComponent={() => (
             <Text style={styles.title}>Mis Favoritos</Text>
           )}
+          numColumns={2}
           // columnWrapperStyle={{ justifyContent: "center" }}
         />
       </View>
@@ -81,6 +82,11 @@ const styles = StyleSheet.create({
   },
   listContent: {
     paddingBottom: 150,
+    // display: "flex",
+    justifyContent: "center",
+    margin: "auto"
+    // flexDirection: "row",k
+
   },
   backButton: {
     marginTop: 20,

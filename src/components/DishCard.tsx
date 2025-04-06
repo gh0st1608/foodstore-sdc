@@ -1,4 +1,4 @@
-// src/components/DishCard.tsx
+
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Pressable, Modal } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -10,6 +10,7 @@ interface Dish {
   name: string;
   price: number;
   isVegan?: boolean;
+  description?: string;
 }
 
 interface DishCardProps {
@@ -44,7 +45,7 @@ const DishCard: React.FC<DishCardProps> = ({ dish }) => {
 
     // Mostrar modal
     setFavModalVisible(true);
-    // Ocultarlo tras 2 seg
+    // Ocultarlo tras 1 seg
     setTimeout(() => {
       setFavModalVisible(false);
       setFavModalMessage("");
@@ -61,12 +62,13 @@ const DishCard: React.FC<DishCardProps> = ({ dish }) => {
           <Text style={styles.cardName}>{dish.name}</Text>
           <Text style={styles.cardPrice}>$ {dish.price}</Text>
           {dish.isVegan && <Text style={styles.veganTag}>Vegan</Text>}
-          <Text style={styles.cardSubtitle}>Toca para agregar al carrito</Text>
+          <Text style={styles.cardDescription}>{dish.description}</Text>
+          {/* <Text style={styles.cardSubtitle}>Toca para agregar al carrito</Text> */}
         </View>
 
         {/* Ícono de favorito a la derecha */}
         <Pressable onPress={handleToggleFavorite}>
-          <MaterialIcons name={favIconName} size={24} color="#f33" />
+          <MaterialIcons name={favIconName} size={24} color="#f33" flex={1} />
         </Pressable>
       </View>
 
@@ -103,6 +105,7 @@ const styles = StyleSheet.create({
     padding: 5,
     marginBottom: 8,
     borderRadius: 6,
+    width: 150,
   },
   row: {
     flexDirection: "row",
@@ -118,6 +121,11 @@ const styles = StyleSheet.create({
   },
   cardPrice: {
     marginTop: 4,
+  },
+  cardDescription: {
+    marginTop: 4,
+    fontSize: 12,
+    color: "#666",
   },
   veganTag: {
     marginTop: 2,
