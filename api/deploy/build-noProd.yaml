@@ -25,7 +25,7 @@ steps:
 
 
 timeout: '600s'
-serviceAccount: '1094025365695-compute@developer.gserviceaccount.com'
+serviceAccount: 'oval-crawler-444615-k3@appspot.gserviceaccount.com'
 logsBucket: 'gs://foodstore-design-dev/logs'
 options:
   logging: GCS_ONLY
