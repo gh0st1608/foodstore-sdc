@@ -14,7 +14,7 @@ steps:
     args:
       - '-c'
       - |
-        gsutil cp design/dist/*.yaml gs://compass-shr-apigee_apicatalog/apicatalog/
+        gsutil cp design/dist/*.yaml gs://foodstore-design-dev
 
 substitutions:
   _BUCKET: 'compass-shr-apigee_apicatalog'

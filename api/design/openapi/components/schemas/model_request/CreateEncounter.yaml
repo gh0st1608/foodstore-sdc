@@ -96,7 +96,5 @@ properties:
                   $ref: ../attributes/encounters/diagnosis/diagnosisCondition.yaml
                 rank:
                   $ref: ../attributes/encounters/diagnosis/rank.yaml
-          meta:
-            $ref: ../attributes/MetaObjectCreate.yaml
 
           

@@ -1,5 +1,5 @@
 {
-    "name": "aapi-ne-diagnostic",
+    "name": "api-foodstore",
     "version": "1.0.0",
     "dependencies": {
         "@redocly/openapi-cli": "0.12.16",
@@ -8,8 +8,8 @@
     "private": true,
     "scripts": {
         "start": "openapi preview-docs --port 8084 openapi/openapi.yaml",
-        "build": "openapi bundle -o dist/api-ne-diagnostic.yaml",
-        "build-html": "redoc-cli bundle ./dist/aapi-ne-diagnostic.yaml --output ./dist/api-ne-diagnostic.html -t ./docs/index.html",
+        "build": "openapi bundle -o dist/foodstore-dev.yaml",
+        "build-html": "redoc-cli bundle ./dist/foodstore-dev.yaml --output ./dist/foodstore-dev.html -t ./docs/index.html",
         "test": "openapi validate"
     },
     "devDependencies": {
