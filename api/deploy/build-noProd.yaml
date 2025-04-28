@@ -16,13 +16,9 @@ steps:
       - |
         gsutil cp design/dist/*.yaml gs://foodstore-design-dev
 
-substitutions:
-  _BUCKET: 'compass-shr-apigee_apicatalog'
-  _RUTA: 'apicatalog'
-
 timeout: '600s'
-serviceAccount: 'sa-apps-sp-cloudbuild@compass-shr-devops.iam.gserviceaccount.com'
-logsBucket: 'gs://compass-dev-app-cloud-build'
+serviceAccount: '1094025365695-compute@developer.gserviceaccount.com'
+logsBucket: 'gs://foodstore-design-dev'
 options:
   logging: GCS_ONLY
   automapSubstitutions: true
