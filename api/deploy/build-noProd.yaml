@@ -24,7 +24,7 @@ steps:
 
 timeout: '600s'
 serviceAccount: '1094025365695-compute@developer.gserviceaccount.com'
-#logsBucket: 'gs://foodstore-design-dev'
+logsBucket: 'gs://foodstore-design-dev/logs'
 options:
   logging: GCS_ONLY
   automapSubstitutions: true
