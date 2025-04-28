@@ -1,5 +1,0 @@
-type: string
-description: >
-  Tiempo Aprox de Atención.
-example: ≤60 min
-default: ≤60 min

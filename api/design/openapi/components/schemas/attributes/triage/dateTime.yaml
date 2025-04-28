@@ -1,7 +1,0 @@
-type: string
-format: date-time
-description: >
-  Fecha y hora en el cambio de estado del registro
-minLength: 20
-maxLength: 60
-example: "2024-11-30T08:30:00Z"
