@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Quota continueOnError="true" enabled="true" name="Quota-Product" type="flexi">
-  <Identifier ref="verifyapikey.VA-VerifyApiKey.client_id"/>
-  <Interval ref="verifyapikey.VA-VerifyApiKey.apiproduct.developer.quota.interval"/>
-  <TimeUnit ref="verifyapikey.VA-VerifyApiKey.apiproduct.developer.quota.timeunit"/>
-  <Allow countRef="verifyapikey.VA-VerifyApiKey.apiproduct.developer.quota.limit"/>
-  <Distributed>true</Distributed>
-  <Synchronous>false</Synchronous>
-</Quota>

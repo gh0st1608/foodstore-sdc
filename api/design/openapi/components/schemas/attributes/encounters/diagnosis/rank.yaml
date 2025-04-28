@@ -1,5 +1,0 @@
-type: integer
-description: >
-  Ranking del diagnóstico
-minimum: 1
-example: 6

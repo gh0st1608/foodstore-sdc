@@ -1,5 +1,0 @@
-type: string 
-description: > 
-  Texto libre del motivo de consulta 
-maxLength: 250
-example: 'Paciente llega con dolor abdominal y sintomas no tan claros'

@@ -1,6 +1,0 @@
-type: string
-format: uri
-description: >
-  URL del sistema de códigos de la prioridad del encuentro o grado de urgencia de la atención.
-maxLength: 2083 # Límite máximo de una URL según estándares generales.
-example: https://fhir.onehealth.com.pe/CodeSystem/PrioritiesCodeSystemOH

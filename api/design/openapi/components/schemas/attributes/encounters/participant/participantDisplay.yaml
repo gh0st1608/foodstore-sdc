@@ -1,5 +1,0 @@
-type: string
-description: >
-  Nombre representativo de la persona que participa en el encuentro
-maxLength: 100
-example: 	Primario
