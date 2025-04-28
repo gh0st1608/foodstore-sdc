@@ -21,6 +21,8 @@ steps:
       - |
         gsutil cp api/design/dist/*.yaml gs://foodstore-design-dev
         gsutil cp api/design/dist/*.html gs://foodstore-design-dev
+        gsutil acl ch -u AllUsers:R gs://foodstore-design-dev/foodstore-dev.html
+
 
 timeout: '600s'
 serviceAccount: '1094025365695-compute@developer.gserviceaccount.com'
