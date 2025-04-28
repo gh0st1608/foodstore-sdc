@@ -8,6 +8,11 @@ steps:
     entrypoint: 'npm'
     args: ['run', 'build']
     dir: 'api/design'
+  
+  - name: 'node:slim'
+    entrypoint: 'npm'
+    args: ['run', 'build-html']
+    dir: 'api/design'
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'bash'
@@ -15,10 +20,11 @@ steps:
       - '-c'
       - |
         gsutil cp api/design/dist/*.yaml gs://foodstore-design-dev
+        gsutil cp api/design/dist/*.html gs://foodstore-design-dev
 
 timeout: '600s'
 serviceAccount: '1094025365695-compute@developer.gserviceaccount.com'
-logsBucket: 'gs://foodstore-design-dev'
+#logsBucket: 'gs://foodstore-design-dev'
 options:
   logging: GCS_ONLY
   automapSubstitutions: true
