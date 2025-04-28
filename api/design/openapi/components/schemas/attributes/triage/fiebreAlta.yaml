@@ -1,0 +1,8 @@
+type: string
+description: >
+  Fiebre > 39°C
+example: Si
+default: No
+enum:
+  - Si
+  - No

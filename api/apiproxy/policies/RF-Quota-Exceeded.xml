@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault continueOnError="false" enabled="true" name="RF-Quota-Exceeded">
+  <DisplayName>RF-Quota-Exceeded</DisplayName>
+  <Properties/>
+  <FaultResponse>
+    <Set>
+      <Headers/>
+      <Payload contentType="application/json">
+        {
+          "Error": {
+            "status": "{propertyset.error.status3}",
+            "code": "{propertyset.error.code3}",
+            "title": "{propertyset.error.title3}",
+            "message": "{propertyset.error.message3}",
+            "dateTime": "{formattedTime}"
+          }
+        } 
+      </Payload>
+      <StatusCode>429</StatusCode>
+      <ReasonPhrase>Too Many Requests</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

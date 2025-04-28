@@ -1,0 +1,28 @@
+steps:
+  - name: 'node:slim'
+    entrypoint: 'npm'
+    args: ['install']
+    dir: 'design'
+
+  - name: 'node:slim'
+    entrypoint: 'npm'
+    args: ['run', 'build']
+    dir: 'design'
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gsutil cp design/dist/*.yaml gs://compass-shr-apigee_apicatalog/apicatalog/
+
+substitutions:
+  _BUCKET: 'compass-shr-apigee_apicatalog'
+  _RUTA: 'apicatalog'
+
+timeout: '600s'
+serviceAccount: 'sa-apps-sp-cloudbuild@compass-shr-devops.iam.gserviceaccount.com'
+logsBucket: 'gs://compass-dev-app-cloud-build'
+options:
+  logging: GCS_ONLY
+  automapSubstitutions: true

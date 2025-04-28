@@ -1,0 +1,8 @@
+type: string
+description: >
+  Código unico del recurso de la cuenta de pago
+format: uuid
+minLength: 36
+maxLength: 36
+pattern: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+example: 7af1c4d2-9042-47f0-9356-f9f0a985ca91

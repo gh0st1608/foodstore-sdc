@@ -1,0 +1,102 @@
+type: object
+description: Entidad permite crear un encuentro
+properties:
+  Data:
+    type: object
+    properties:
+      Encounter:
+        required:
+          - status
+          - class
+          - identifier
+          - subject
+          - participant
+          - period
+          - serviceProvider
+          - meta
+        type: object
+        properties:
+          status:
+            $ref: ../attributes/encounters/status.yaml
+          type:
+            $ref: ../attributes/encounters/type.yaml
+          length:
+            $ref: ../attributes/encounters/length.yaml
+          identifier:
+            required:
+              - system
+              - value
+              - assigner
+            type: object
+            properties:
+              system:
+                $ref: ../attributes/encounters/identifier/encIdentifierSystem.yaml
+              value:
+                $ref: ../attributes/encounters/identifier/encIdentifierValue.yaml
+              assigner:
+                $ref: ../attributes/encounters/identifier/encIdentifierAssigner.yaml
+          class:
+            required:
+              - system
+              - code 
+            type: object
+            properties:
+              system:
+                $ref: ../attributes/encounters/class/classSystem.yaml
+              code:
+                $ref: ../attributes/encounters/class/classCode.yaml
+          priority:
+            $ref: ../attributes/encounters/priority/priorityCode.yaml
+          subject:
+            $ref: ../attributes/encounters/subject.yaml
+          serviceProvider:
+            $ref: ../attributes/encounters/serviceProvider.yaml
+          appointment:
+            $ref: ../attributes/encounters/appointment.yaml
+          participant:
+            type: array
+            items:
+              required:
+                - individual
+              type: object
+              properties:
+                individual:
+                  $ref: ../attributes/encounters/participant/participantIndividual.yaml
+                type:
+                  $ref: ../attributes/encounters/participant/participantCode.yaml
+          period:
+            required:
+              - start
+            type: object
+            properties:
+              start:
+                $ref: ../attributes/encounters/period.yaml
+              end:
+                $ref: ../attributes/encounters/period.yaml
+          reasonCode:
+            type: array
+            items:
+              type: object
+              properties:
+                coding: 
+                  $ref: ../attributes/encounters/reasonCode/reasonCodeCode.yaml
+                text: 
+                  $ref: ../attributes/encounters/reasonCode/text.yaml
+          diagnosis:
+            type: array
+            items :
+              required:
+                - use
+                - condition
+              type : object
+              properties:
+                use:
+                  $ref: ../attributes/encounters/diagnosis/diagnosisCode.yaml
+                condition:
+                  $ref: ../attributes/encounters/diagnosis/diagnosisCondition.yaml
+                rank:
+                  $ref: ../attributes/encounters/diagnosis/rank.yaml
+          meta:
+            $ref: ../attributes/MetaObjectCreate.yaml
+
+          

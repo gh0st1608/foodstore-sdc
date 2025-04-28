@@ -1,0 +1,6 @@
+type: string
+description: >
+  valor del identificador
+maxLength: 36
+pattern: '^[a-zA-Z0-9-]+$'
+example: '20100054184'

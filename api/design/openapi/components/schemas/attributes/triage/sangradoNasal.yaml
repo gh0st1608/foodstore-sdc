@@ -1,0 +1,8 @@
+type: string
+description: >
+  Sangrado nasal abundante
+example: Si
+default: No
+enum:
+  - Si
+  - No

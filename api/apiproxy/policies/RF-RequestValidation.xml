@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault continueOnError="false" enabled="true" name="RF-RequestValidation">
+  <DisplayName>RF-RequestValidation</DisplayName>
+  <Properties/>
+  <FaultResponse>
+    <Set>
+      <Headers/>
+      <Payload contentType="application/json">
+        {
+          "Error": {
+            "status": "{propertyset.error.status4}",
+            "code": "{propertyset.error.code4}",
+            "title": "{propertyset.error.title4}",
+            "message": "{propertyset.error.message4}",
+            "dateTime": "{formattedTime}"
+          }
+        } 
+      </Payload>
+      <StatusCode>400</StatusCode>
+      <ReasonPhrase>BAD REQUEST</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

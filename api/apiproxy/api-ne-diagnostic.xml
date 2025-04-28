@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="api-ne-diagnostic">
+  <DisplayName/>
+  <Description>API de negocio Diagnostic, donde se define los alcances recursos:
+    - Triage
+    - Observations
+</Description>
+  <CreatedAt>1742332937605</CreatedAt>
+  <LastModifiedAt>1742332937605</LastModifiedAt>
+  <BasePaths>/api-ne-diagnostic/v1/triages</BasePaths>
+  <Policies>
+    <Policy>AM-TargetCopyPathsuffix</Policy>
+    <Policy>CORS</Policy>
+    <Policy>JS-HostValidation</Policy>
+    <Policy>JS-RegexTP</Policy>
+    <Policy>OAS-Triages-Validation</Policy>   
+    <Policy>Quota-Product</Policy>
+    <Policy>RegexTP</Policy>
+    <Policy>RF-Cors</Policy>
+    <Policy>RF-InvalidApikeyEnv</Policy>
+    <Policy>RF-InvalidHost</Policy>
+    <Policy>RF-Quota-Exceeded</Policy>
+    <Policy>RF-RegexTP</Policy>
+    <Policy>RF-RequestValidation</Policy>
+    <Policy>RF-UnknownResource</Policy>
+    <Policy>RF-VerifyApiKey</Policy>
+    <Policy>SA-RateLimit</Policy>
+    <Policy>SetFormattedDateTime</Policy>
+    <Policy>VA-VerifyApiKey</Policy>
+  </Policies>
+  <ProxyEndpoints>
+    <ProxyEndpoint>triages</ProxyEndpoint>
+  </ProxyEndpoints>
+  <Resources>
+    <Resource>jsc://JS-HostValidation.js</Resource>
+    <Resource>jsc://JS-RegexTP.js</Resource>
+    <Resource>oas://Request-Triages-Validation.yaml</Resource>
+    <Resource>properties://error.properties</Resource>
+  </Resources>
+  <TargetEndpoints>
+    <TargetEndpoint>dev</TargetEndpoint>
+    <TargetEndpoint>prod</TargetEndpoint>
+    <TargetEndpoint>test</TargetEndpoint>
+  </TargetEndpoints>
+</APIProxy>

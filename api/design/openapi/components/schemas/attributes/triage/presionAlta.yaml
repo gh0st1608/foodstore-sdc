@@ -1,0 +1,8 @@
+type: string
+description: >
+  Diagnóstico de presión alta
+example: Si
+default: No
+enum:
+  - Si
+  - No

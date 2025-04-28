@@ -1,0 +1,13 @@
+type: array
+items:
+  type: string
+  enum:
+    - '440655000'
+    - '410620009'
+    - '308516007'
+    - '409001005'
+    - '281036007'
+    - '275926002'
+description: >
+  Lista de códigos de tipo de encuentro permitidos. Solo se puede tener un codigo de encuentro dentro del array
+example: ["440655000"]

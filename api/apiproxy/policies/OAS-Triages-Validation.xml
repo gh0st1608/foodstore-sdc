@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OASValidation continueOnError="true" enabled="true" name="OAS-Triages-Validation">
+  <DisplayName>OAS-Triages-Validation</DisplayName>
+  <Properties/>
+  <Source>request</Source>
+  <OASResource>oas://Request-Triages-Validation.yaml</OASResource>
+  <Options>
+    <ValidateMessageBody>true</ValidateMessageBody>
+  </Options>
+</OASValidation>

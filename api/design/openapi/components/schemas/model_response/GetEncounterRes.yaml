@@ -1,0 +1,107 @@
+type: object
+description: Devuelve un item de encuentro
+properties:
+  Data:
+    type: object
+    properties:
+      Encounter:
+        type: object
+        properties:
+          status:
+            $ref: ../attributes/encounters/status.yaml
+          type:
+            $ref: ../attributes/encounters/type.yaml
+          length:
+            $ref: ../attributes/encounters/length.yaml
+          identifier:
+            type: object
+            properties:
+              system:
+                $ref: ../attributes/encounters/identifier/encIdentifierSystem.yaml
+              value:
+                $ref: ../attributes/encounters/identifier/encIdentifierValue.yaml
+              assigner:
+                $ref: ../attributes/encounters/identifier/encIdentifierAssigner.yaml
+          class:
+            type: object
+            properties:
+              system:
+                $ref: ../attributes/encounters/class/classSystem.yaml
+              code:
+                $ref: ../attributes/encounters/class/classCode.yaml
+              display:
+                $ref: ../attributes/encounters/class/classDisplay.yaml
+          priority:
+            type: object
+            properties:
+              system:
+                $ref: ../attributes/encounters/priority/prioritySystem.yaml
+              code:
+                $ref: ../attributes/encounters/priority/priorityCode.yaml
+              display:
+                $ref: ../attributes/encounters/priority/priorityDisplay.yaml
+          subject:
+            $ref: ../attributes/encounters/subject.yaml
+          participant:
+            type: object
+            properties:
+              individual:
+                $ref: ../attributes/encounters/participant/participantIndividual.yaml
+              type:
+                type : object
+                properties:
+                  coding:
+                    type : object
+                    properties:
+                      system:
+                        $ref: ../attributes/encounters/priority/prioritySystem.yaml
+                      code:
+                        $ref: ../attributes/encounters/priority/priorityCode.yaml
+                      display:
+                        $ref: ../attributes/encounters/priority/priorityDisplay.yaml
+          appointment:
+            $ref: ../attributes/encounters/appointment.yaml
+          period:
+            type: object
+            properties:
+              start:
+                $ref: ../attributes/encounters/period.yaml
+              end:
+                $ref: ../attributes/encounters/period.yaml
+          reasonCode:
+            type: object
+            properties:
+              coding:
+                type : object
+                properties:
+                  system:
+                    $ref: ../attributes/encounters/reasonCode/reasonCodeSystem.yaml
+                  code:
+                    $ref: ../attributes/encounters/reasonCode/reasonCodeCode.yaml
+                  display:
+                    $ref: ../attributes/encounters/reasonCode/reasonCodeDisplay.yaml
+          diagnosis:
+            type: array
+            items:
+              type: object
+              properties:
+                condition:
+                  $ref: ../attributes/encounters/diagnosis/diagnosisCondition.yaml
+                use:
+                  type: object
+                  properties:
+                    coding:
+                      type : object
+                      properties:
+                        system:
+                          $ref: ../attributes/encounters/diagnosis/diagnosisSystem.yaml
+                        code:
+                          $ref: ../attributes/encounters/diagnosis/diagnosisCode.yaml
+                        display:
+                          $ref: ../attributes/encounters/diagnosis/diagnosisDisplay.yaml
+                rank:
+                  $ref: ../attributes/encounters/diagnosis/rank.yaml
+          serviceProvider:
+            $ref: ../attributes/encounters/serviceProvider.yaml
+
+          

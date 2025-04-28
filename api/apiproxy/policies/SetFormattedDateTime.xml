@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="SetFormattedDateTime">
+  <AssignVariable>
+    <Name>timeformat</Name>
+    <Value>yyyy-MM-dd'T'HH:mm:ss.SSS'Z'</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>formattedTime</Name>
+    <Template>{timeFormatUTCMs(timeformat,system.timestamp)}</Template>
+  </AssignVariable>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

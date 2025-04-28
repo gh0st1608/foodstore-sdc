@@ -1,0 +1,8 @@
+type: string
+description: >
+  Cirugía reciente (últimos 3 meses)
+example: Si
+default: No
+enum:
+  - Si
+  - No

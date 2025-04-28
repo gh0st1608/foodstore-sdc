@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault continueOnError="false" enabled="true" name="RF-InvalidApikeyEnv">
+  <DisplayName>RF-InvalidApikeyEnv</DisplayName>
+  <Properties/>
+  <FaultResponse>
+    <Set>
+      <Headers/>
+      <Payload contentType="application/json">
+        {
+          "Error": {
+            "status": "{propertyset.error.status2}",
+            "code": "{propertyset.error.code2}",
+            "title": "{propertyset.error.title2}",
+            "message": "Provided API key cannot identify environment",
+            "dateTime": "{formattedTime}"
+          }
+        } 
+      </Payload>
+      <StatusCode>401</StatusCode>
+      <ReasonPhrase>Unauthorized</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault continueOnError="false" enabled="true" name="RF-InvalidHost">
+  <DisplayName>RF-InvalidHost</DisplayName>
+  <Properties/>
+  <FaultResponse>
+    <Set>
+      <Headers/>
+      <Payload contentType="application/json">
+        {
+          "Error": {
+            "status": 403,
+            "code": "FORBIDDEN",
+            "title": "Access denied",
+            "message": "Forbidden host",
+            "dateTime": "{formattedTime}"
+          }
+        } 
+      </Payload>
+      <StatusCode>403</StatusCode>
+      <ReasonPhrase>FORBIDDEN</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

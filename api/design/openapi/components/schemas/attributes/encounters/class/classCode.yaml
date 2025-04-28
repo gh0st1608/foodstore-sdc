@@ -1,0 +1,9 @@
+type: string
+description: >
+  Código de categoria de encuentro. Para este caso solo se permite el valor de "VR"
+example: VR
+enum:
+  - VR
+externalDocs:
+  description: Documentación de lista de categorias de encuentro
+  url: http://terminology.hl7.org/6.1.0/ValueSet-v3-ActEncounterCode.html

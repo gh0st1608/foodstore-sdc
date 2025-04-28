@@ -1,0 +1,19 @@
+type: array
+items:
+  type: string
+  enum:
+    - ADM
+    - ATND
+    - CALLBCK
+    - CON
+    - DIS
+    - ESC
+    - REF
+    - SPRF
+    - PPRF
+    - PART
+    - traslator
+    - emergency
+description: >
+  Lista de códigos de personas que participan en el encuentro
+example: ["ADM", "ATND"]

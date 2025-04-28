@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RegularExpressionProtection continueOnError="true" enabled="true" name="RegexTP">
+  <DisplayName>RegexTP</DisplayName>
+  <Properties/>
+  <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+  <Variable name="request.content">
+    <Pattern>[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(select)|(update)|(\bor\b)|(call)|(sp_execute)|(prepare)|(execute))</Pattern>
+    <Pattern>[\s]*((DELETE)|(EXEC)|(drop\s*table)|(INSERT)|(SHUTDOWN)|(SELECT)|(UPDATE)|(CALL)|(SP_EXECUTE)|(PREPARE)|(EXECUTE))</Pattern>
+    <Pattern>
+      <![CDATA[<script.*?>.*?</script>]]>
+    </Pattern>
+    <Pattern>
+      <![CDATA[<img.*src="(javascript:|data:|vbscript:)">]]>
+    </Pattern>
+  </Variable>
+  <Variable name="aheaders">
+    <Pattern>[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(select)|(update)|(\bor\b)|(call)|(sp_execute)|(prepare)|(execute))</Pattern>
+    <Pattern>[\s]*((DELETE)|(EXEC)|(drop\s*table)|(INSERT)|(SHUTDOWN)|(SELECT)|(UPDATE)|(CALL)|(SP_EXECUTE)|(PREPARE)|(EXECUTE))</Pattern>
+    <Pattern>
+      <![CDATA[<script.*?>.*?</script>]]>
+    </Pattern>
+    <Pattern>
+      <![CDATA[<img.*src="(javascript:|data:|vbscript:)">]]>
+    </Pattern>
+  </Variable>
+  <Variable name="request.querystring">
+    <Pattern>[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(select)|(update)|(\bor\b)|(call)|(sp_execute)|(prepare)|(execute))</Pattern>
+    <Pattern>[\s]*((DELETE)|(EXEC)|(drop\s*table)|(INSERT)|(SHUTDOWN)|(SELECT)|(UPDATE)|(CALL)|(SP_EXECUTE)|(PREPARE)|(EXECUTE))</Pattern>
+    <Pattern>
+      <![CDATA[<script.*?>.*?</script>]]>
+    </Pattern>
+    <Pattern>
+      <![CDATA[<img.*src="(javascript:|data:|vbscript:)">]]>
+    </Pattern>
+  </Variable>
+  <URIPath>
+    <Pattern>[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(select)|(update)|(\bor\b)|(call)|(sp_execute)|(prepare)|(execute))</Pattern>
+    <Pattern>[\s]*((DELETE)|(EXEC)|(drop\s*table)|(INSERT)|(SHUTDOWN)|(SELECT)|(UPDATE)|(CALL)|(SP_EXECUTE)|(PREPARE)|(EXECUTE))</Pattern>
+    <Pattern>
+      <![CDATA[<script.*?>.*?</script>]]>
+    </Pattern>
+    <Pattern>
+      <![CDATA[<img.*src="(javascript:|data:|vbscript:)">]]>
+    </Pattern>
+  </URIPath>
+  <Source>request</Source>
+</RegularExpressionProtection>

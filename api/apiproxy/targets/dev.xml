@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="dev">
+  <Description/>
+  <PreFlow name="PreFlow">
+    <Request>
+      <Step>
+        <Name>AM-TargetCopyPathsuffix</Name>
+      </Step>
+    </Request>
+    <Response/>
+  </PreFlow>
+  <PostFlow name="PostFlow">
+    <Request>
+    </Request>
+    <Response/>
+  </PostFlow>
+  <Flows/>
+  <HTTPTargetConnection>
+    <LoadBalancer>
+      <Server name="ts-dev-apiscore"/>
+    </LoadBalancer>
+    <Path>/{proxy.name}{proxy.pathsuffix}</Path>
+  </HTTPTargetConnection>
+</TargetEndpoint>

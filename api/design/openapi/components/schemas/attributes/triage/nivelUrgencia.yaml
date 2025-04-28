@@ -1,0 +1,11 @@
+type: number
+description: >
+  Nivel de urgencia del paciente.
+example: 1
+default: 1
+enum:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5

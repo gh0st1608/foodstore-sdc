@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CORS continueOnError="true" enabled="true" name="CORS">
+  <DisplayName>CORS</DisplayName>
+  <AllowOrigins>*</AllowOrigins>
+  <AllowMethods>GET, PUT, DELETE, PATCH, OPTIONS, POST</AllowMethods>
+  <AllowHeaders>*</AllowHeaders>
+  <ExposeHeaders>*</ExposeHeaders>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</CORS>

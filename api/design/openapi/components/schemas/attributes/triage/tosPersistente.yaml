@@ -1,0 +1,8 @@
+type: string
+description: >
+  Tos que no mejora
+example: Si
+default: No
+enum:
+  - Si
+  - No

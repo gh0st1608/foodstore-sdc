@@ -1,0 +1,8 @@
+type: string
+description: >
+  Dolor de cabeza intenso.
+example: Si
+default: No
+enum:
+  - Si
+  - No

@@ -1,0 +1,8 @@
+type: string
+description: >
+  Dificultad para respirar.
+example: Si
+default: No
+enum:
+  - Si
+  - No

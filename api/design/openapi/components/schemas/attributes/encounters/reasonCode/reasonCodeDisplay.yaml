@@ -1,0 +1,5 @@
+type: string
+description: >
+  Nombre representativo del motivo del encuentro, o motivo de consulta
+maxLength: 250
+example: 	Choroidal hemorrhage

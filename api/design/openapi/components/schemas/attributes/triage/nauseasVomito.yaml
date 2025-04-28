@@ -1,0 +1,8 @@
+type: string
+description: >
+  presenta nauseas o vomitos?
+example: Si
+default: No
+enum:
+  - Si
+  - No

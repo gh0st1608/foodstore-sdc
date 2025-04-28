@@ -1,0 +1,5 @@
+type: string
+description: >
+  Texto plano de la representación del concepto
+maxLength: 50
+example: Encuentro ambulatorio

@@ -1,0 +1,6 @@
+type: string
+format: date-time
+description: >
+  Fecha y hora de algun instante en el encuentro.
+pattern: '^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$'
+example: "2024-11-30T08:30:00Z"

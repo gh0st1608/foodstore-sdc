@@ -1,0 +1,30 @@
+description: Entidad para evaluación del triage
+required: true
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/model_request/SmartTriageCreate.yaml
+    examples:
+      Caso-Prueba-01:
+        summary: Caso Prueba 01
+        value:
+          Data:
+            Triage:
+              dificultadRespirar: Si
+              dolorPecho: No
+              perdidaConciencia: No
+              sangradoNasal: No
+              fiebreAlta: Si
+              dolorAbdominal: No
+              nauseasVomitos: No
+              dolorCabeza: Si
+              mareos: No
+              tosPersistente: Si
+              embarazo: No
+              presionAlta: Si
+              diabetes: No
+              hipertension: Si
+              dislipidemia: No
+              obesidad: Si
+              cancer: No
+              cirugiaReciente: No

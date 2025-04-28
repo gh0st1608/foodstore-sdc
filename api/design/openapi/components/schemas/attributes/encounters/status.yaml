@@ -1,0 +1,13 @@
+type: string
+description: >
+  Tipo de status del encuentro
+example: planned
+enum:
+  - planned
+  - arrived
+  - triaged
+  - in-progress
+  - onleave
+  - finished
+  - entered-in-error
+  - unknown

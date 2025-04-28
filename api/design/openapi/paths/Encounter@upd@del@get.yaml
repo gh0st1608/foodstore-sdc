@@ -1,0 +1,158 @@
+parameters:
+  - $ref: ../components/parameters/TraceId.yaml
+  - $ref: ../components/parameters/ApplicationName.yaml
+  - $ref: ../components/parameters/Channel.yaml
+  - $ref: ../components/parameters/ApiKey.yaml
+  - $ref: ../components/parameters/Provider.yaml
+  - name: id
+    in: path
+    description: identificador unico del recurso Encounter Fhir
+    required: true
+    schema:
+      type: string
+      format: uuid
+      minLength: 36
+      maxLength: 36
+      pattern: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+      example: 13eddde5-40f7-4d6d-a007-18c696e9fd56
+delete:
+  summary: Delete Encounter
+  operationId: deleteEncounter
+  description: >
+    📦 Procesos: Eliminar encuentro con identificador
+  
+  
+    🔧 Funcionalidad: Eliminar datos del encuentro
+  
+      
+    🚀 Objetivo: Eliminar encuentro
+  
+  
+    📌 Comentarios: 
+
+  tags:
+    - Encounters
+  
+  responses:
+    '200':
+      $ref: ../components/responses/DeleteEncounterResponse.yaml
+    '400':
+      $ref: ../components/statusCodes/BadRequestResponse.yaml
+    '401':
+      $ref: ../components/statusCodes/UnauthorizedResponse.yaml
+    '403':
+      $ref: ../components/statusCodes/ForbiddenResponse.yaml
+    '404':
+      $ref: ../components/statusCodes/NotFoundResponse.yaml
+    '407':
+      $ref: ../components/statusCodes/ProxyAuthenticationResponse.yaml
+    '409':
+      $ref: ../components/statusCodes/ConflictResponse.yaml
+    '411':
+      $ref: ../components/statusCodes/LengthRequiredResponse.yaml
+    '414':
+      $ref: ../components/statusCodes/UriTooLongResponse.yaml
+    '429':
+      $ref: ../components/statusCodes/TooManyRequestsResponse.yaml
+    '500':
+      $ref: ../components/statusCodes/InternalServerErrorResponse.yaml
+    default:
+      $ref: ../components/statusCodes/UnexpectedErrorResponse.yaml
+  security:
+    - api_key: []
+
+get:
+  summary: Get Encounter
+  operationId: getEncounter
+  description: >
+    📦 Procesos: Obtener el encuentro con identificador
+  
+  
+    🔧 Funcionalidad: Obtener datos de la encuentro
+  
+      
+    🚀 Objetivo: Obtener encuentro
+  
+  
+    📌 Comentarios: 
+
+  tags:
+    - Encounters
+  
+  responses:
+    '200':
+      $ref: ../components/responses/GetEncounterResponse.yaml
+    '400':
+      $ref: ../components/statusCodes/BadRequestResponse.yaml
+    '401':
+      $ref: ../components/statusCodes/UnauthorizedResponse.yaml
+    '403':
+      $ref: ../components/statusCodes/ForbiddenResponse.yaml
+    '404':
+      $ref: ../components/statusCodes/NotFoundResponse.yaml
+    '407':
+      $ref: ../components/statusCodes/ProxyAuthenticationResponse.yaml
+    '409':
+      $ref: ../components/statusCodes/ConflictResponse.yaml
+    '411':
+      $ref: ../components/statusCodes/LengthRequiredResponse.yaml
+    '414':
+      $ref: ../components/statusCodes/UriTooLongResponse.yaml
+    '429':
+      $ref: ../components/statusCodes/TooManyRequestsResponse.yaml
+    '500':
+      $ref: ../components/statusCodes/InternalServerErrorResponse.yaml
+    default:
+      $ref: ../components/statusCodes/UnexpectedErrorResponse.yaml
+  security:
+    - api_key: []
+
+put:
+  summary: Update Encounter
+  operationId: updateEncounter
+  description: >
+    📦 Procesos: Actualizar encuentro con identificador
+  
+  
+    🔧 Funcionalidad: Actualizar datos del encuentro
+  
+      
+    🚀 Objetivo: Actualizar encuentro
+  
+  
+    📌 Comentarios: 
+
+  tags:
+    - Encounters
+  
+  requestBody:
+    $ref: ../components/requestBodies/UpdateEncounterReq.yaml
+
+  responses:
+    '200':
+      $ref: ../components/responses/UpdateEncounterResponse.yaml
+    '400':
+      $ref: ../components/statusCodes/BadRequestResponse.yaml
+    '401':
+      $ref: ../components/statusCodes/UnauthorizedResponse.yaml
+    '403':
+      $ref: ../components/statusCodes/ForbiddenResponse.yaml
+    '404':
+      $ref: ../components/statusCodes/NotFoundResponse.yaml
+    '407':
+      $ref: ../components/statusCodes/ProxyAuthenticationResponse.yaml
+    '409':
+      $ref: ../components/statusCodes/ConflictResponse.yaml
+    '411':
+      $ref: ../components/statusCodes/LengthRequiredResponse.yaml
+    '414':
+      $ref: ../components/statusCodes/UriTooLongResponse.yaml
+    '429':
+      $ref: ../components/statusCodes/TooManyRequestsResponse.yaml
+    '500':
+      $ref: ../components/statusCodes/InternalServerErrorResponse.yaml
+    default:
+      $ref: ../components/statusCodes/UnexpectedErrorResponse.yaml
+
+  security:
+    - api_key: []

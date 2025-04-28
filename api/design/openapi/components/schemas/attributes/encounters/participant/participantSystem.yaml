@@ -1,0 +1,6 @@
+type: string
+format: uri
+description: >
+  URL del sistema de códigos de los participantes del encuentro.
+maxLength: 2083 # Límite máximo de una URL según estándares generales.
+example: http://terminology.hl7.org/CodeSystem/v3-ActCode

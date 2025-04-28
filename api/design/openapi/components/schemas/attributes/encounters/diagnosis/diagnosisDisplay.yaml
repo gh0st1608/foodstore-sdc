@@ -1,0 +1,5 @@
+type: string
+description: >
+  Nombre representativo del rol del diagnóstico en el encuentro
+maxLength: 100
+example: 	Primario

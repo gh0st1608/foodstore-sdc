@@ -1,0 +1,8 @@
+type: string
+description: >
+  Diagnóstico de hipertensión
+example: Si
+default: No
+enum:
+  - Si
+  - No

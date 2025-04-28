@@ -1,0 +1,8 @@
+type: string
+description: >
+  ¿Paciente embarazada?
+example: Si
+default: No
+enum:
+  - Si
+  - No

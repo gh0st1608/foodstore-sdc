@@ -1,0 +1,5 @@
+type: string
+description: >
+  Nivel de Atención.
+example: Urgente
+default: Urgente
