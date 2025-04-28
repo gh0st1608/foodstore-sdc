@@ -13,6 +13,7 @@
         "test": "openapi validate"
     },
     "devDependencies": {
-        "@redocly/openapi-cli": "0.12.7"
+        "@redocly/openapi-cli": "0.12.7",
+        "redoc-cli": "^0.13.21"
     }
 }
