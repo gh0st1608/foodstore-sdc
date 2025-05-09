@@ -1,8 +1,0 @@
-type: string
-description: >
-  Colesterol o triglicéridos altos
-example: Si
-default: No
-enum:
-  - Si
-  - No

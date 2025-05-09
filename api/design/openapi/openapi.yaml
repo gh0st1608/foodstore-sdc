@@ -1,56 +1,40 @@
 openapi: 3.0.3
 info:
   version: 1.0.0
-  title: API de Negocio Diagnostic
+  title: API de Negocio Foodstore
   description: >
-    API de negocio Diagnostic, donde se define los alcances recursos.
+    API de negocio Foodstore, donde se define los alcances recursos.
       Recuros:
 
-        - Triaje
-        - Observación
-        - Encounter
-
+        - Product
 
   contact:
-    name: Victor Luis Maita Salazar
-    email: victor.maita@rimac.com.pe
-    url: 'https://apimarket.cuidaco.pe/guia-para-desarrolladores'
+    name: Erick Galindo Aguilar
+    email: erickmga123@gmail.com
+    url: 'https://storage.googleapis.com/foodstore-design-dev/foodstore-dev.html'
     x-role: API Designer
   x-catalog:
-    x-id-proxy: api-ne-diagnostic
-    x-id-product: internal-product-dev-diagnostic
-    x-id-catalog: api-ne-diagnostic
+    x-id-proxy: api-ne-foodstore
+    x-id-product: internal-product-dev-foodstore
+    x-id-catalog: api-ne-foodstore
 servers:
-  - url: 'https://api-dev.cuidaco.pe/api-ne-diagnostic/v1'
+  - url: 'https://api-dev.cuidaco.pe/api-ne-foodstore/v1'
     description: Servidor de ambiente Desarrollo
-  #- url: 'https://api-test.cuidaco.pe/api-ne-diagnostic/v1'
-  #  description: Servidor de ambiente Certificación
-  #- url: 'https://api.cuidaco.pe/api-ne-diagnostic/v1'
-  #  description: Servidor de ambiente Producción
 
 tags:
-  - name: Triage
+  - name: Products
     description: >
-      Agrupa los servicios de gestión de Triages Custumizados
-  - name: Encounters
-    description: >
-      Agrupa los servicios de gestión sobre el recurso de: Encuentro
+      Agrupa los servicios de gestión sobre el recurso de: Producto
 
 paths: 
-  '/triages/smart-triage':
-    $ref: 'paths/Smart@triageEvaluar.yaml'
-  '/encounters/register':
-    $ref: 'paths/Encounter@create.yaml'
-  '/encounters/{id}':
-    $ref: 'paths/Encounter@upd@del@get.yaml'
+  '/products/register':
+    $ref: 'paths/Product@create.yaml'
+  '/products/{id}':
+    $ref: 'paths/Product@upd@del@get.yaml'
 
 
 components:
   securitySchemes:
-    basicAuth:
-      type: http
-      description: basic auth
-      scheme: basic
     api_key:
       description: Código único del Cliente.
       type: "apiKey"

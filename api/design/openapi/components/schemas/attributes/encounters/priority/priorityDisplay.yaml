@@ -1,5 +1,0 @@
-type: string
-description: >
-  Nombre representativo de la prioridad del encuentro o grado de urgencia de la atención
-maxLength: 20
-example: 	Baja

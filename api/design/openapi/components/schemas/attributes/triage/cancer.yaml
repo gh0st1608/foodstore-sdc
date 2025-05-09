@@ -1,8 +1,0 @@
-type: string
-description: >
-  Diagnóstico de cáncer
-example: Si
-default: No
-enum:
-  - Si
-  - No

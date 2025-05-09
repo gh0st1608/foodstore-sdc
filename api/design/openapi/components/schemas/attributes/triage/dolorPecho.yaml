@@ -1,8 +1,0 @@
-type: string
-description: >
-  Dolor en el pecho.
-example: Si
-default: No
-enum:
-  - Si
-  - No

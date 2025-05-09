@@ -1,6 +1,0 @@
-type: string
-format: uri
-description: >
-  URL del sistema que asignó el identificador
-maxLength: 2083 # Límite máximo de una URL según estándares generales.
-example: https://fhir.onehealth.com.pe/sunat

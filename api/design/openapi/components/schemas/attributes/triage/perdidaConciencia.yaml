@@ -1,8 +1,0 @@
-type: string
-description: >
-  Pérdida de conciencia (desmayo).
-example: Si
-default: No
-enum:
-  - Si
-  - No

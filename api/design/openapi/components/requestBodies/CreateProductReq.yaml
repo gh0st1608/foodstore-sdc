@@ -1,0 +1,20 @@
+description: Entidad para crear un producto
+required: true
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/model_request/CreateProduct.yaml
+    examples:
+      Caso-Prueba-01:
+        summary: Caso Prueba 01
+        value:
+          Data:
+            Product:
+              status: true
+              negocio: 'RESTAURANT'
+              tipo: 'CARTA'
+              titulo: 'ARROZ CON POLLO'
+              precio : 10
+              categoria: 'ARROCES'
+              descripcion: Arroz graneado con pollo fresco.
+              imagen: https://restaurante-images.s3.us-east-1.amazonaws.com/uploads/1743964953

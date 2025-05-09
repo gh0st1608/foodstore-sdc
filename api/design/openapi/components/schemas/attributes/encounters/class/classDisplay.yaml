@@ -1,5 +1,0 @@
-type: string
-description: >
-  Nombre representativo de la categoria de encuentro
-maxLength: 100
-example: 	ambulatory
