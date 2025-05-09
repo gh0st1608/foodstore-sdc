@@ -13,7 +13,7 @@ content:
               status: true
               business: 'RESTAURANT'
               type: 'CARTA'
-              title: 'ARROZ CON POLLO'
+              name: 'ARROZ CON POLLO'
               price : 10
               category: 'ARROCES'
               description: Arroz graneado con pollo fresco.

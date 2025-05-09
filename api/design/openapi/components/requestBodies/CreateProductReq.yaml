@@ -11,10 +11,10 @@ content:
           Data:
             Product:
               status: true
-              negocio: 'RESTAURANT'
-              tipo: 'CARTA'
-              titulo: 'ARROZ CON POLLO'
-              precio : 10
-              categoria: 'ARROCES'
-              descripcion: Arroz graneado con pollo fresco.
-              imagen: https://restaurante-images.s3.us-east-1.amazonaws.com/uploads/1743964953
+              business: 'RESTAURANT'
+              type: 'CARTA'
+              name: 'ARROZ CON POLLO'
+              price : 10
+              category: 'ARROCES'
+              description: Arroz graneado con pollo fresco.
+              image: https://restaurante-images.s3.us-east-1.amazonaws.com/uploads/1743964953
