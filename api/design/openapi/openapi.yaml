@@ -7,6 +7,7 @@ info:
       Recuros:
 
         - Product
+        - 
 
   contact:
     name: Erick Galindo Aguilar
@@ -25,13 +26,29 @@ tags:
   - name: Products
     description: >
       Agrupa los servicios de gestión sobre el recurso de: Producto
+  - name: Orders
+    description: >
+      Agrupa los servicios de gestión sobre el recurso de: Orden
+  - name: Payments
+    description: >
+      Agrupa los servicios de gestión sobre el recurso de: Pago
+  - name: Auths
+    description: >
+      Agrupa los servicios de gestión sobre el recurso de: Auth
 
 paths: 
   '/products/register':
     $ref: 'paths/Product@create.yaml'
+  '/orders/register':
+    $ref: 'paths/Order@create.yaml'
+  '/payments/register':
+    $ref: 'paths/Payment@create.yaml'
   '/products/{id}':
     $ref: 'paths/Product@upd@del@get.yaml'
-
+  '/auths/login':
+    $ref: 'paths/Auth@login.yaml'
+  #'/auths/register':
+  #  $ref: 'paths/Auth@register'  
 
 components:
   securitySchemes:

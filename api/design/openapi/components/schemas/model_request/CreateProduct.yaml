@@ -7,11 +7,12 @@ properties:
       Product:
         required:
           - status
-          - negocio
-          - tipo
-          - titulo
-          - precio
-          - categoria
+          - business
+          - type
+          - name
+          - price
+          - category
+          - description
         type: object
         properties:
           status:

@@ -1,0 +1,31 @@
+type: object
+description: Esquema para autenticar un usuario en el sistema
+properties:
+  Data:
+    type: object
+    properties:
+      Login:
+        type: object
+        required:
+          - authType
+        properties:
+          authType:
+            $ref: ../attributes/auth/typeAuth.yaml
+          email:
+            $ref: ../attributes/email.yaml
+          password:
+            $ref: ../attributes/auth/password.yaml
+          captchaToken:
+            type: string
+            description: Token de reCAPTCHA (opcional, si se requiere validación anti-bot)
+            example: "03AGdBq24..."
+          oauthProvider:
+            $ref: ../attributes/auth/oauthProvider.yaml
+          oauthToken:
+            type: string
+            description: Token OAuth del proveedor (requerido si authType es oauth)
+            example: ya29.A0ARrdaM...
+          
+
+
+          
