@@ -5,27 +5,12 @@ properties:
     type: object
     properties:
       Login:
-        type: object
-        required:
-          - authType
-        properties:
-          authType:
-            $ref: ../attributes/auth/typeAuth.yaml
-          email:
-            $ref: ../attributes/email.yaml
-          password:
-            $ref: ../attributes/auth/password.yaml
-          captchaToken:
-            type: string
-            description: Token de reCAPTCHA (opcional, si se requiere validación anti-bot)
-            example: "03AGdBq24..."
-          oauthProvider:
-            $ref: ../attributes/auth/oauthProvider.yaml
-          oauthToken:
-            type: string
-            description: Token OAuth del proveedor (requerido si authType es oauth)
-            example: ya29.A0ARrdaM...
-          
-
-
-          
+        description: Tipos de autenticación soportados por el sistema.
+        oneOf:
+          - $ref: ../attributes/auth/authPassword.yaml
+          - $ref: ../attributes/auth/authOAuth.yaml
+        discriminator:
+          propertyName: authType
+          mapping:
+            password: ../attributes/auth/authPassword.yaml
+            oauth: ../attributes/auth/authOAuth.yaml

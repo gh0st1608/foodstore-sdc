@@ -1,35 +1,3 @@
-type: object
-description: >
-  Tipos de autenticación soportados en el sistema para login o registro.
-oneOf:
-  - title: Autenticación con Contraseña
-    type: object
-    properties:
-      authType:
-        type: string
-        enum: [password]
-      requiredFields:
-        type: array
-        items:
-          type: string
-        example: [email, password]
-    required: [authType, requiredFields]
-    example:
-      authType: password
-      requiredFields: [email, password]
-
-  - title: Autenticación con OAuth
-    type: object
-    properties:
-      authType:
-        type: string
-        enum: [oauth]
-      requiredFields:
-        type: array
-        items:
-          type: string
-        example: [oauthProvider, oauthToken]
-    required: [authType, requiredFields]
-    example:
-      authType: oauth
-      requiredFields: [oauthProvider, oauthToken]
+type: string
+description: Tipo de autenticación
+enum: [password, oauth]
