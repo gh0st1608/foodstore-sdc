@@ -1,0 +1,41 @@
+version: 0.2
+
+env:
+  variables:
+    S3_BUCKET: foodstore-microservices-lambdas-functions
+    ZIP_KEY: auth/lambda.zip
+    LAMBDA_NAME: foodstore-auth-service
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo "Instalando dependencias para compilación..."
+      - npm ci
+
+  build:
+    commands:
+      - echo "Compilando Lambda..."
+      - npm run build:lambda
+      - echo "Preparando carpeta temporal para empaquetado..."
+      - mkdir -p .build-lambda
+      - cp -r dist .build-lambda/
+      - cp package.json .build-lambda/
+      - cd .build-lambda
+      - echo "Instalando solo dependencias de producción..."
+      - npm install --omit=dev
+      - echo "Empaquetando lambda.zip..."
+      - zip -r lambda.zip .
+      - cd ..
+
+  post_build:
+    commands:
+      - echo "Subiendo a S3..."
+      - aws s3 cp .build-lambda/lambda.zip s3://$S3_BUCKET/$ZIP_KEY
+      - echo "Actualizando función Lambda..."
+      - aws lambda update-function-code --function-name $LAMBDA_NAME --s3-bucket $S3_BUCKET --s3-key $ZIP_KEY
+
+artifacts:
+  files:
+    - .build-lambda/lambda.zip

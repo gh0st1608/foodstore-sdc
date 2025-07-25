@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./.build-lambda"
+  },
+  "exclude": ["node_modules", ".build", ".build-lambda", "test", "**/*.spec.ts"],
+  "include": ["src/**/*.ts"]
+}
