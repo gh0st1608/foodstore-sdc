@@ -1,4 +1,3 @@
-// src/lambda.ts
 import { NestFactory, Reflector } from '@nestjs/core';
 import { AuthModule } from './auth.module';
 import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
