@@ -16,12 +16,8 @@ phases:
     commands:
       - echo "Compilando Lambda..."
       - npm run build:lambda
-      - echo "Preparando carpeta temporal para empaquetado..."
-      - mkdir -p .build-lambda
-      - cp -r dist .build-lambda/
-      - cp package.json .build-lambda/
-      - cd .build-lambda
       - echo "Instalando solo dependencias de producción..."
+      - cd .build-lambda
       - npm install --omit=dev
       - echo "Empaquetando lambda.zip..."
       - zip -r lambda.zip .
