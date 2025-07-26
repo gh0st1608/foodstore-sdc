@@ -38,7 +38,7 @@ export class LoginUseCase {
     }
 
     const accessToken = this.authService.generateAccessToken(user);
-    const refreshToken = this.authService.generateRefreshToken(user); // o authLogin.refreshToken si viene de cliente
+    const refreshToken = this.authService.generateRefreshToken(user);
 
     return {
       Auth: {
