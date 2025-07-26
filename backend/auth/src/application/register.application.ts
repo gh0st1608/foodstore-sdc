@@ -34,7 +34,7 @@ export class RegisterUseCase {
       name: fullName,
       email,
       password: hashedPassword,
-      roles: 'user', // o el rol que definas por defecto
+      roles: 'user',
     });
 
     await this.userRepository.save(user);
