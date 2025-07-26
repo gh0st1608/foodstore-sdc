@@ -8,11 +8,9 @@ env:
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 18
     commands:
       - echo "Instalando dependencias para compilación..."
-      - npm ci || (echo "Fallo al ejecutar npm ci" && cat /root/.npm/_logs/* || true && exit 1)
+      - npm install
 
   build:
     commands:
