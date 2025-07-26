@@ -12,7 +12,7 @@ phases:
       nodejs: 18
     commands:
       - echo "Instalando dependencias para compilación..."
-      - npm ci
+      - npm ci || (echo "Fallo al ejecutar npm ci" && cat /root/.npm/_logs/* || true && exit 1)
 
   build:
     commands:
