@@ -11,18 +11,19 @@ phases:
     commands:
       - echo "Cambiando al directorio del microservicio..."
       - cd backend/auth
-      - echo "Instalando dependencias para compilación..."
-      - npm install
+      - echo "Instalando dependencias..."
+      - npm ci
 
   build:
     commands:
       - echo "Compilando Lambda..."
       - npm run build:lambda
-      - echo "Instalando solo dependencias de producción..."
+      - echo "Preparando .build-lambda con dependencias de producción..."
+      - cp package.json package-lock.json .build-lambda/
       - cd .build-lambda
-      - npm install --omit=dev
+      - npm ci --omit=dev
       - echo "Empaquetando lambda.zip..."
-      - zip -r lambda.zip .
+      - zip -r lambda.zip .    # Comprime TODO el contenido (incluye node_modules)
       - cd ..
 
   post_build:
