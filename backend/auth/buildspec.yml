@@ -9,21 +9,23 @@ env:
 phases:
   install:
     commands:
+      - echo "Incrementando límite de archivos abiertos..."
+      - ulimit -n 4096
       - echo "Cambiando al directorio del microservicio..."
       - cd backend/auth
-      - echo "Instalando dependencias..."
-      - npm ci
+      - echo "Instalando dependencias para compilación..."
+      - npm ci --no-audit --no-fund --maxsockets=1
 
   build:
     commands:
       - echo "Compilando Lambda..."
       - npm run build:lambda
-      - echo "Preparando .build-lambda con dependencias de producción..."
+      - echo "Copiando archivos necesarios al directorio de build..."
       - cp package.json package-lock.json .build-lambda/
       - cd .build-lambda
-      - npm ci --omit=dev
+      - npm ci --omit=dev --no-audit --no-fund --maxsockets=1
       - echo "Empaquetando lambda.zip..."
-      - zip -r lambda.zip .    # Comprime TODO el contenido (incluye node_modules)
+      - zip -r lambda.zip .
       - cd ..
 
   post_build:
