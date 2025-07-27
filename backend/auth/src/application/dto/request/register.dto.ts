@@ -25,20 +25,14 @@ export class RegisterUserPayloadDto {
   @IsString()
   @IsNotEmpty({ message: 'El nombre completo es requerido.' })
   @MaxLength(150, { message: 'El nombre completo no debe exceder 150 caracteres.' })
-  fullName: string;
+  fullname: string;
 }
 
 /**
  * Contenedor intermedio que replica la estructura { Data: { User: { ... } } }.
  */
-export class RegisterDataDto {
+export class RegisterDto {
   @ValidateNested()
   @Type(() => RegisterUserPayloadDto)
   User: RegisterUserPayloadDto;
-}
-
-export class RegisterRequestDto {
-  @ValidateNested()
-  @Type(() => RegisterDataDto)
-  Data: RegisterDataDto;
 }

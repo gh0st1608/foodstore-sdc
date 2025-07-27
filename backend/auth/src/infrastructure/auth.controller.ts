@@ -1,7 +1,7 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { LoginUseCase } from '../application/login.application';
-import { LoginRequestDto } from '../application/dto/request/login.dto';
-import { RegisterRequestDto } from '../application/dto/request/register.dto';
+import { LoginDto } from '../application/dto/request/login.dto';
+import { RegisterDto } from '../application/dto/request/register.dto';
 import { RegisterUseCase } from '../application/register.application';
 
 @Controller('auth')
@@ -12,12 +12,12 @@ export class AuthController {
   ) {}
 
   @Post('login')
-  async login(@Body() body: LoginRequestDto) {
+  async login(@Body() body: LoginDto) {
     return this.loginUseCase.execute(body);
   }
 
   @Post('register')
-  async register(@Body() body: RegisterRequestDto) {
+  async register(@Body() body: RegisterDto) {
     return this.registerUseCase.execute(body);
   }
 

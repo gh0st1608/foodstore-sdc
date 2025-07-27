@@ -1,7 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { UserRepository } from '../domain/repository/user.repository';
 import { AuthService } from '../domain/services/auth.service';
-import { RegisterRequestDto } from '../application/dto/request/register.dto';
+import {
+  RegisterDto,
+} from '../application/dto/request/register.dto';
 import { AuthResponseDto } from '../application/dto/response/response-custom.dto';
 import { UserRepositorySymbol } from '../domain/repository/user.repository';
 import { AuthServiceSymbol } from '../domain/services/auth.service';
@@ -20,35 +22,40 @@ export class RegisterUseCase {
     private readonly authService: AuthService,
   ) {}
 
-  async execute(registerDto: RegisterRequestDto): Promise<AuthResponseDto> {
-    const { email, password, fullName } = registerDto.Data.User;
+  async execute(registerDto: RegisterDto): Promise<AuthResponseDto> {
+    try {
+      const { email, password, fullname } = registerDto.User;
 
-    const existingUser = await this.userRepository.findByEmail(email);
-    if (existingUser) {
-      throw new UserAlreadyExistsException();
+      const existingUser = await this.userRepository.findByEmail(email);
+      if (existingUser) {
+        throw new UserAlreadyExistsException();
+      }
+
+      const hashedPassword = await this.authService.hashPassword(password);
+
+      const user = User.create({
+        name: fullname,
+        email,
+        password: hashedPassword,
+        roles: 'user',
+      });
+
+      await this.userRepository.save(user);
+
+      const accessToken = this.authService.generateAccessToken(user);
+      const refreshToken = this.authService.generateRefreshToken(user);
+
+      return {
+        Auth: {
+          accessToken,
+          refreshToken,
+        },
+        statusCode: HttpStatusResponse.CREATED,
+        message: DomainSuccessMessages.REGISTER_SUCCESS,
+      };
+    } catch (error) {
+      console.error('❌ Error en RegisterUseCase.execute():', error);
+      throw error;
     }
-
-    const hashedPassword = await this.authService.hashPassword(password);
-
-    const user = User.create({
-      name: fullName,
-      email,
-      password: hashedPassword,
-      roles: 'user',
-    });
-
-    await this.userRepository.save(user);
-
-    const accessToken = this.authService.generateAccessToken(user);
-    const refreshToken = this.authService.generateRefreshToken(user);
-
-    return {
-      Auth: {
-        accessToken,
-        refreshToken,
-      },
-      statusCode: HttpStatusResponse.CREATED,
-      message: DomainSuccessMessages.REGISTER_SUCCESS,
-    };
   }
 }

@@ -28,14 +28,9 @@ export class LoginPayloadDto {
   captchaToken?: string;
 }
 
-export class LoginDataDto {
+export class LoginDto {
   @ValidateNested()
   @Type(() => LoginPayloadDto)
   Auth: LoginPayloadDto;
 }
 
-export class LoginRequestDto {
-  @ValidateNested()
-  @Type(() => LoginDataDto)
-  Data: LoginDataDto;
-}

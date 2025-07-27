@@ -26,6 +26,7 @@ export type UserPropertiesUpdate = Partial<
 >;
 
 export class User {
+  private id : string;
   private name: string;
   private lastname: string;
   private readonly email: string;
@@ -45,7 +46,7 @@ export class User {
 
   properties(): UserProperties {
     return {
-      id: (this as any)._id.toString(),
+      id: this.id,
       name: this.name,
       lastname: this.lastname,
       email: this.email,
