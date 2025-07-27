@@ -9,12 +9,10 @@ env:
 phases:
   install:
     commands:
-      - echo "Incrementando límite de archivos abiertos..."
-      - ulimit -n 4096
       - echo "Cambiando al directorio del microservicio..."
       - cd backend/auth
       - echo "Instalando dependencias para compilación..."
-      - npm ci --no-audit --no-fund --maxsockets=1
+      - npm ci
 
   build:
     commands:
