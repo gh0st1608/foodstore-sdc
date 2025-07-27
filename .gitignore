@@ -11,6 +11,7 @@ aws/dev.tfvars
 backend/**/node_modules/
 backend/**/.build/
 backend/**/.build-lambda/
+backend/**/*.tsbuildinfo
 
 #envs
 backend/auth/.env

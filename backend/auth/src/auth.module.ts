@@ -4,7 +4,7 @@ import { Module } from '@nestjs/common';
 import { LoginUseCase } from './application/login.application';
 import { UserRepositoryImpl } from './infrastructure/repository/user.repository.impl';
 import { AuthController } from './infrastructure/auth.controller';
-import { UserRepositorySymbol } from './domain/repositories/user.repository';
+import { UserRepositorySymbol } from './domain/repository/user.repository';
 import { AuthServiceSymbol } from './domain/services/auth.service';
 import { AuthServiceImpl } from './infrastructure/services/auth.service.impl';
 import { ConfigModule } from '@nestjs/config';

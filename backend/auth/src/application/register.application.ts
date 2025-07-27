@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { UserRepository } from '../domain/repositories/user.repository';
+import { UserRepository } from '../domain/repository/user.repository';
 import { AuthService } from '../domain/services/auth.service';
 import { RegisterRequestDto } from '../application/dto/request/register.dto';
 import { AuthResponseDto } from '../application/dto/response/response-custom.dto';
-import { UserRepositorySymbol } from '../domain/repositories/user.repository';
+import { UserRepositorySymbol } from '../domain/repository/user.repository';
 import { AuthServiceSymbol } from '../domain/services/auth.service';
 import { UserAlreadyExistsException } from '../application/exceptions/user-exists.exception';
 import { HttpStatusResponse } from '../domain/constants/http-code';

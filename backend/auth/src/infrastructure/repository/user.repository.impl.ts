@@ -5,7 +5,7 @@ import {
   PutCommand,
 } from '@aws-sdk/lib-dynamodb';
 import { User } from '../../domain/user.entity';
-import { UserRepository } from '../../domain/repositories/user.repository';
+import { UserRepository } from '../../domain/repository/user.repository';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 
 @Injectable()
