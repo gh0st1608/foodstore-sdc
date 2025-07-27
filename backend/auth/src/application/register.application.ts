@@ -1,14 +1,14 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { UserRepository } from '../../src/domain/repositories/user.repository';
-import { AuthService } from '../../src/domain/services/auth.service';
+import { UserRepository } from '../domain/repositories/user.repository';
+import { AuthService } from '../domain/services/auth.service';
 import { RegisterRequestDto } from '../application/dto/request/register.dto';
 import { AuthResponseDto } from '../application/dto/response/response-custom.dto';
-import { UserRepositorySymbol } from '../../src/domain/repositories/user.repository';
-import { AuthServiceSymbol } from '../../src/domain/services/auth.service';
+import { UserRepositorySymbol } from '../domain/repositories/user.repository';
+import { AuthServiceSymbol } from '../domain/services/auth.service';
 import { UserAlreadyExistsException } from '../application/exceptions/user-exists.exception';
-import { HttpStatusResponse } from '../../src/domain/constants/http-code';
-import { DomainSuccessMessages } from '../../src/domain/constants/messages';
-import { User } from '../../src/domain/user.entity';
+import { HttpStatusResponse } from '../domain/constants/http-code';
+import { DomainSuccessMessages } from '../domain/constants/messages';
+import { User } from '../domain/user.entity';
 
 @Injectable()
 export class RegisterUseCase {

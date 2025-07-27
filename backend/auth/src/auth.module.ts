@@ -1,12 +1,12 @@
 // src/infrastructure/modules/auth.module.ts
 
 import { Module } from '@nestjs/common';
-import { LoginUseCase } from '../src/application/login.application';
+import { LoginUseCase } from './application/login.application';
 import { UserRepositoryImpl } from './infrastructure/repository/user.repository.impl';
 import { AuthController } from './infrastructure/auth.controller';
-import { UserRepositorySymbol } from '../src/domain/repositories/user.repository';
-import { AuthServiceSymbol } from '../src/domain/services/auth.service';
-import { AuthServiceImpl } from '../src/infrastructure/services/auth.service.impl';
+import { UserRepositorySymbol } from './domain/repositories/user.repository';
+import { AuthServiceSymbol } from './domain/services/auth.service';
+import { AuthServiceImpl } from './infrastructure/services/auth.service.impl';
 import { ConfigModule } from '@nestjs/config';
 import { RegisterUseCase } from './application/register.application';
 
