@@ -36,10 +36,6 @@ variable "jwt_refresh_secret" {
   type = string
 }
 
-variable "key_pair_name" {
-  type = string
-}
-
 /* variable "auth_zip_path" {
   description = "Ruta al archivo ZIP del microservicio de autenticación"
   type        = string

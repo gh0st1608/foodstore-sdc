@@ -20,11 +20,4 @@ export class AuthController {
   async register(@Body() body: RegisterDto) {
     return this.registerUseCase.execute(body);
   }
-
-  /* @Post('register')
-  async register(
-    @Body() body: AuthRegisterDto
-  ) {
-    return this.registerUseCase.execute(body);
-  } */
 }

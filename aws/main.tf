@@ -65,6 +65,8 @@ resource "aws_lambda_function" "auth_lambda" {
   filename      = "${path.module}/dummy_lambda.zip"
   source_code_hash = filebase64sha256("${path.module}/dummy_lambda.zip")
 
+  timeout = 60
+
   environment {
     variables = {
       NODE_ENV = var.env
@@ -167,12 +169,20 @@ resource "aws_api_gateway_integration" "auth_register_lambda" {
   uri                     = aws_lambda_function.auth_lambda.invoke_arn
 }
 
-resource "aws_lambda_permission" "auth_permission" {
-  statement_id  = "AllowAPIGatewayInvokeAuth"
+resource "aws_lambda_permission" "auth_login_permission" {
+  statement_id  = "AllowInvokeAuthLogin"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.auth_lambda.function_name
   principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_api_gateway_rest_api.foodstore_api.execution_arn}/*/*"
+  source_arn    = "${aws_api_gateway_rest_api.foodstore_api.execution_arn}/${var.env}/POST/auth/login"
+}
+
+resource "aws_lambda_permission" "auth_register_permission" {
+  statement_id  = "AllowInvokeAuthRegister"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.auth_lambda.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_api_gateway_rest_api.foodstore_api.execution_arn}/${var.env}/POST/auth/register"
 }
 
 # /orders
@@ -214,7 +224,19 @@ resource "aws_api_gateway_deployment" "api_deployment" {
     aws_api_gateway_integration.orders_post_lambda,
   ]
   rest_api_id = aws_api_gateway_rest_api.foodstore_api.id
-  stage_name  = "dev"
+  stage_name  = var.env
+
+    triggers = {
+    redeployment = sha1(jsonencode({
+      login    = aws_api_gateway_integration.auth_login_lambda.id
+      register = aws_api_gateway_integration.auth_register_lambda.id
+      orders   = aws_api_gateway_integration.orders_post_lambda.id
+    }))
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 output "auth_login_url" {
