@@ -67,7 +67,12 @@ resource "aws_lambda_function" "auth_lambda" {
 
   environment {
     variables = {
-      NODE_ENV = "dev"
+      NODE_ENV = var.env
+      JWT_SECRET= var.access_key
+      JWT_REFRESH_SECRET= var.access_key
+      ACCESS_KEY_ID= var.access_key
+      SECRET_ACCESS_KEY= var.secret_key
+      REGION= var.region
     }
   }
 

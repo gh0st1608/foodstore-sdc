@@ -15,7 +15,7 @@ export class UserRepositoryImpl implements UserRepository {
 
   constructor() {
     const client = new DynamoDBClient({
-      region: process.env.AWS_REGION || 'us-east-1',
+      region: process.env.REGION || 'us-east-1',
       credentials: {
         accessKeyId: process.env.ACCESS_KEY_ID!,
         secretAccessKey: process.env.SECRET_ACCESS_KEY!,
