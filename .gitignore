@@ -15,6 +15,7 @@ backend/**/*.tsbuildinfo
 
 #envs
 backend/auth/.env
+backend/notification/.env
 
 # Ignorar artefactos ZIP y temporales
 backend/**/lambda.zip
