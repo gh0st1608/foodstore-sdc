@@ -3,14 +3,14 @@ version: 0.2
 env:
   variables:
     S3_BUCKET: foodstore-microservices-lambdas-functions
-    ZIP_KEY: auth/lambda.zip
-    LAMBDA_NAME: foodstore-auth-service
+    ZIP_KEY: notification/lambda.zip
+    LAMBDA_NAME: foodstore-notification-service
 
 phases:
   install:
     commands:
       - echo "Cambiando al directorio del microservicio..."
-      - cd backend/auth
+      - cd backend/notification
       - echo "Instalando dependencias para compilación..."
       - npm ci --no-audit --prefer-offline
 
