@@ -12,7 +12,7 @@ phases:
       - echo "Cambiando al directorio del microservicio..."
       - cd backend/notification
       - echo "Instalando dependencias para compilación..."
-      - npm ci --no-audit --prefer-offline
+      - npm ci --no-audit
 
   build:
     commands:
