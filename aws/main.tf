@@ -75,6 +75,7 @@ resource "aws_lambda_function" "auth_lambda" {
       ACCESS_KEY_ID= var.access_key
       SECRET_ACCESS_KEY= var.secret_key
       REGION= var.region
+      EVENT_USER_REGISTERED_TOPIC= var.topic_arn_user_registered
     }
   }
 
@@ -238,6 +239,64 @@ resource "aws_api_gateway_deployment" "api_deployment" {
     create_before_destroy = true
   }
 }
+
+# -----------------------------
+# SNS Topic y Lambda Notification
+# -----------------------------
+
+resource "aws_sns_topic" "user_registered_topic" {
+  name = "user-registered-topic"
+  tags = merge(local.common_tags, {
+    Service = "notification"
+  })
+}
+
+resource "aws_lambda_function" "notification_lambda" {
+  function_name = "foodstore-notification-service"
+  handler       = "lambda-handler.handler"
+  runtime       = "nodejs18.x"
+  role          = aws_iam_role.lambda_exec.arn
+  filename      = "${path.module}/dummy_lambda.zip"
+  source_code_hash = filebase64sha256("${path.module}/dummy_lambda.zip")
+
+  timeout = 60
+
+  lifecycle {
+    ignore_changes = [
+      filename,
+      source_code_hash,
+    ]
+  }
+
+  environment {
+    variables = {
+      NODE_ENV = var.env
+    }
+  }
+
+  tags = merge(local.common_tags, {
+    Service = "notification"
+  })
+}
+
+resource "aws_sns_topic_subscription" "notification_lambda_sub" {
+  topic_arn = aws_sns_topic.user_registered_topic.arn
+  protocol  = "lambda"
+  endpoint  = aws_lambda_function.notification_lambda.arn
+}
+
+resource "aws_lambda_permission" "allow_sns_to_invoke_notification" {
+  statement_id  = "AllowExecutionFromSNS"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.notification_lambda.function_name
+  principal     = "sns.amazonaws.com"
+  source_arn    = aws_sns_topic.user_registered_topic.arn
+}
+
+output "user_registered_topic_arn" {
+  value = aws_sns_topic.user_registered_topic.arn
+}
+
 
 output "auth_login_url" {
   value = "${aws_api_gateway_deployment.api_deployment.invoke_url}/auth/login"

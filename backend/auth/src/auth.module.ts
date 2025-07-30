@@ -9,6 +9,8 @@ import { AuthServiceSymbol } from './domain/services/auth.service';
 import { AuthServiceImpl } from './infrastructure/services/auth.service.impl';
 import { ConfigModule } from '@nestjs/config';
 import { RegisterUseCase } from './application/register.application';
+import { EventUserPublisherSymbol } from './domain/services/event.service';
+import { EventUserPublisherImpl } from './infrastructure/events/sns.events.publisher';
 
 @Module({
   imports: [
@@ -28,6 +30,10 @@ import { RegisterUseCase } from './application/register.application';
     {
       provide: AuthServiceSymbol,
       useClass: AuthServiceImpl,
+    },
+    {
+      provide: EventUserPublisherSymbol,
+      useClass: EventUserPublisherImpl,
     },
   ],
 })

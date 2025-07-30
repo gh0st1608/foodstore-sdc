@@ -1,9 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { UserRepository } from '../domain/repository/user.repository';
 import { AuthService } from '../domain/services/auth.service';
-import {
-  RegisterDto,
-} from '../application/dto/request/register.dto';
+import { RegisterDto } from '../application/dto/request/register.dto';
 import { AuthResponseDto } from '../application/dto/response/response-custom.dto';
 import { UserRepositorySymbol } from '../domain/repository/user.repository';
 import { AuthServiceSymbol } from '../domain/services/auth.service';
@@ -11,6 +9,10 @@ import { UserAlreadyExistsException } from '../application/exceptions/user-exist
 import { HttpStatusResponse } from '../domain/constants/http-code';
 import { DomainSuccessMessages } from '../domain/constants/messages';
 import { User } from '../domain/user.entity';
+import {
+  EventUserPublisher,
+  EventUserPublisherSymbol,
+} from '../domain/services/event.service';
 
 @Injectable()
 export class RegisterUseCase {
@@ -20,6 +22,9 @@ export class RegisterUseCase {
 
     @Inject(AuthServiceSymbol)
     private readonly authService: AuthService,
+
+    @Inject(EventUserPublisherSymbol)
+    private readonly eventPublisher: EventUserPublisher,
   ) {}
 
   async execute(registerDto: RegisterDto): Promise<AuthResponseDto> {
@@ -41,6 +46,15 @@ export class RegisterUseCase {
       });
 
       await this.userRepository.save(user);
+
+      // ⚠️ Aquí publicamos el evento
+      await this.eventPublisher.publish({
+        name: 'UserRegistered',
+        payload: {
+          userId: user.properties().id,
+          email: email,
+        },
+      });
 
       const accessToken = this.authService.generateAccessToken(user);
       const refreshToken = this.authService.generateRefreshToken(user);
