@@ -1,0 +1,30 @@
+# Ignorar carpetas y archivos de Terraform
+aws/.terraform/
+aws/terraform.tfstate
+aws/terraform.tfstate.backup
+aws/*.tfstate*
+aws/.terraform.lock.hcl
+aws/dummy_lambda
+aws/dev.tfvars
+
+# Ignorar dependencias de Node.js
+backend/**/node_modules/
+backend/**/.build/
+backend/**/.build-lambda/
+backend/**/*.tsbuildinfo
+
+#envs
+backend/auth/.env
+backend/notification/.env
+
+# Ignorar artefactos ZIP y temporales
+backend/**/lambda.zip
+*.zip
+
+# Ignorar archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar logs y temporales
+*.log
+*.tmp
