@@ -12,7 +12,7 @@ phases:
       - echo "Cambiando al directorio del microservicio..."
       - cd backend/auth
       - echo "Instalando dependencias para compilación..."
-      - npm ci --no-audit --prefer-offline
+      - npm ci --no-audit
 
   build:
     commands:
@@ -21,7 +21,7 @@ phases:
       - echo "Copiando archivos necesarios al directorio de build..."
       - cp package.json package-lock.json .build-lambda/
       - cd .build-lambda
-      - npm ci --omit=dev --no-audit --no-fund --maxsockets=1
+      - npm ci --omit=dev --no-audit
       - echo "Empaquetando lambda.zip..."
       - zip -r lambda.zip .
       - cd ..
