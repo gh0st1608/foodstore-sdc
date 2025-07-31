@@ -21,7 +21,7 @@ phases:
       - echo "Copiando archivos necesarios al directorio de build..."
       - cp package.json package-lock.json .build-lambda/
       - cd .build-lambda
-      - npm ci --omit=dev --no-audit --no-fund --maxsockets=1
+      - npm ci --omit=dev --no-audit
       - echo "Empaquetando lambda.zip..."
       - zip -r lambda.zip .
       - cd ..
