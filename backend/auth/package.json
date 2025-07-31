@@ -19,8 +19,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "keywords": [],
-  "author": "RIMAC",
-  "license": "Copyright (c) Rimac Seguros S.A.",
+  "author": "Ghost1608",
+  "license": "Copyright (c) Solutions SERJ.",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.848.0",
     "@aws-sdk/client-sns": "^3.856.0",
