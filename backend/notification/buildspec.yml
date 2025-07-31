@@ -34,7 +34,7 @@ phases:
           echo "❌ La función Lambda '$LAMBDA_NAME' no existe. Debe crearse primero con Terraform."
           exit 1
         fi
-      - echo "Subiendo a S3..."
+      - echo "Subiendo a S3.."
       - aws s3 cp .build-lambda/lambda.zip s3://$S3_BUCKET/$ZIP_KEY
       - echo "🔍 Verificando existencia del archivo en S3..."
       - |
