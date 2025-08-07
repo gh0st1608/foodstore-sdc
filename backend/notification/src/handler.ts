@@ -1,4 +1,3 @@
-// src/lambda-handler.ts
 import { NestFactory } from '@nestjs/core';
 import { NotificationModule } from './notification.module';
 import { setupAppContext } from './setup';
@@ -13,7 +12,6 @@ export const handler = async (event: SNSEvent) => {
     await setupAppContext(appContext);
     cachedApp = appContext;
   }
-  console.log('entro al handler')
-  const controller = cachedApp.get(NotificationSnsController); // <-- importante
+  const controller = cachedApp.get(NotificationSnsController);
   await controller.handle(event);
 };

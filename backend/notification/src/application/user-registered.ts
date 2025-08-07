@@ -14,7 +14,6 @@ export class UserRegisteredUseCase {
   async execute(user: { email: string; userId: string }): Promise<void> {
     const subject = '¡Bienvenido!';
     const body = `Hola ${user.email}, gracias por registrarte. Tu ID es ${user.userId}.`;
-    console.log('entro al execute de application')
     await this.mailerService.sendEmail({ to: user.email, subject, body });
   }
 }
