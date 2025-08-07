@@ -1,9 +1,11 @@
 // infrastructure/notification.module.ts
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { SendWelcomeEmailUseCase } from './application/send-welcome-email.application';
-import { MailerServiceSymbol } from './domain/service/mailer.service';
-import { SesMailerImpl } from './infrastructure/ses-mailer';
+import { UserRegisteredUseCase } from './application/user-registered';
+import { UserAuthenticatedUseCase } from './application/user-authenticated';
+import { SesMailerServiceSymbol } from './domain/service/mailer.service';
+import { SesMailerImpl } from './infrastructure/ses-mailer.impl';
+import { NotificationSnsController } from './infrastructure/event.controller';
 
 @Module({
     imports: [
@@ -12,13 +14,14 @@ import { SesMailerImpl } from './infrastructure/ses-mailer';
       isGlobal: true,
     }),
   ],
+  controllers: [NotificationSnsController],
   providers: [
-    SendWelcomeEmailUseCase,
+    UserRegisteredUseCase,
+    UserAuthenticatedUseCase,
     {
-      provide: MailerServiceSymbol,
+      provide: SesMailerServiceSymbol,
       useClass: SesMailerImpl,
     },
   ],
-  exports: [SendWelcomeEmailUseCase],
 })
 export class NotificationModule {}

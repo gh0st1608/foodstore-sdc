@@ -7,6 +7,5 @@ async function bootstrap() {
   const app = await NestFactory.create(NotificationModule);
   await setupAppHttp(app);
   await app.listen(process.env.PORT ?? 3333);
-  console.log('Notification service running at http://localhost:3001');
 }
 bootstrap();
