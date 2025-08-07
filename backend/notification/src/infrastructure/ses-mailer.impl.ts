@@ -16,7 +16,7 @@ export class SesMailerImpl implements SesMailerService {
         },
       },
     });
-
+    console.log('entro al sendmail de ses')
     await this.ses.send(command);
   }
 }
