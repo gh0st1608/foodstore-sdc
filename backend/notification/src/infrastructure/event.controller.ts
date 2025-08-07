@@ -1,7 +1,9 @@
+import { Controller } from '@nestjs/common';
 import { UserAuthenticatedUseCase } from '../application/user-authenticated';
 import { UserRegisteredUseCase} from '../application/user-registered'
 
 // notification.sns.handler.ts
+@Controller()
 export class NotificationSnsController {
   constructor(
     private readonly userRegistered: UserRegisteredUseCase,

@@ -14,6 +14,7 @@ import { NotificationSnsController } from './infrastructure/event.controller';
       isGlobal: true,
     }),
   ],
+  controllers: [NotificationSnsController],
   providers: [
     UserRegisteredUseCase,
     UserAuthenticatedUseCase,
@@ -21,7 +22,6 @@ import { NotificationSnsController } from './infrastructure/event.controller';
       provide: SesMailerServiceSymbol,
       useClass: SesMailerImpl,
     },
-    NotificationSnsController, // <-- lo registras aquí
   ],
 })
 export class NotificationModule {}
