@@ -6,6 +6,7 @@ export class SesMailerImpl implements SesMailerService {
   private ses = new SESClient({ region: process.env.REGION });
 
   async sendEmail(mailer : Mailer): Promise<void> {
+    console.log('mailer',mailer)
     const command = new SendEmailCommand({
       Source: process.env.MAIL_FROM,
       Destination: { ToAddresses: [mailer.to] },
@@ -16,6 +17,7 @@ export class SesMailerImpl implements SesMailerService {
         },
       },
     });
+    console.log('command',command)
     console.log('entro al sendmail de ses')
     await this.ses.send(command);
   }
