@@ -1,7 +1,7 @@
 import { Mailer } from "../interfaces/mailer.interface";
 
-export interface MailerService {
+export interface SesMailerService {
   sendEmail(mailer : Mailer): Promise<void>;
 }
 
-export const MailerServiceSymbol = Symbol('MailerService');
+export const SesMailerServiceSymbol = Symbol('SesMailerService');

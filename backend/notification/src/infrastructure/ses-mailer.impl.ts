@@ -1,8 +1,8 @@
 import { Mailer } from '../domain/interfaces/mailer.interface';
-import { MailerService} from '../domain/service/mailer.service';
+import { SesMailerService} from '../domain/service/mailer.service';
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 
-export class SesMailerImpl implements MailerService {
+export class SesMailerImpl implements SesMailerService {
   private ses = new SESClient({ region: process.env.REGION });
 
   async sendEmail(mailer : Mailer): Promise<void> {
