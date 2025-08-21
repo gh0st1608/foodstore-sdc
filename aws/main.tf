@@ -123,7 +123,7 @@ resource "aws_lambda_function" "auth_lambda" {
 }
 
 resource "aws_lambda_function" "order_lambda" {
-  function_name = "foodstore-orders-service"
+  function_name = "foodstore-order-service"
   handler       = "handler.handler"
   runtime       = "nodejs18.x"
   role          = aws_iam_role.lambda_exec.arn
