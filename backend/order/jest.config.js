@@ -5,7 +5,7 @@ module.exports = {
 
   collectCoverageFrom: [
     "src/**/*.ts",
-    '!src/**/*.dto.ts' // ✅ excluye los DTOs
+    '!src/**/*.dto.ts'
   ],
 
   setupFiles: [
