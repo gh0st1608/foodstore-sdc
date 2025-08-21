@@ -36,8 +36,9 @@ variable "jwt_refresh_secret" {
   type = string
 }
 
-variable "topic_arn_user_registered" {
+variable "order_table" {
   type = string
+  default = "Orders"
 }
 
 /* variable "auth_zip_path" {
